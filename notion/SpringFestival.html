@@ -1,0 +1,706 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>无标题</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="224f98de-f13f-805d-a61e-f4c898c8a17d" class="page sans"><header><h1 class="page-title"></h1><p class="page-description"></p></header><div class="page-body"><h1 id="2b7f98de-f13f-80a4-a99f-f8f884ddebf4" class=""><strong>🌴</strong>春节20天情侣海岛慢旅行全攻略（2月6日-2月25日）</h1><p id="2b7f98de-f13f-80de-a47d-c5cf50abd69b" class=""><strong>主题：温暖海岸·浪漫情侣·摄影美食之旅</strong></p><p id="2b7f98de-f13f-80d0-b45c-c1356cb893ef" class=""><strong>路线：郑州 → 广西北海 → 广东南澳岛 → 海南万宁</strong></p><hr id="2b7f98de-f13f-807f-9276-e3c979483f2f"/><h2 id="2b7f98de-f13f-8062-ab4c-e64e565e20be" class=""><strong>✅</strong>一、行程概览与预算分配</h2><h3 id="2b7f98de-f13f-8080-aab5-e5227abb8d12" class="">核心信息</h3><ul id="2b7f98de-f13f-808e-b858-d46df7c22a3a" class="bulleted-list"><li style="list-style-type:disc"><strong>总天数</strong>：20天（含往返交通）</li></ul><ul id="2b7f98de-f13f-8017-92a0-c58507805996" class="bulleted-list"><li style="list-style-type:disc"><strong>出发地</strong>：郑州</li></ul><ul id="2b7f98de-f13f-80a8-8514-df85b27194dc" class="bulleted-list"><li style="list-style-type:disc"><strong>旅行风格</strong>：躺平式慢旅行，每日1-2个核心活动，充足午休与自由探索时间</li></ul><ul id="2b7f98de-f13f-80eb-8532-d9ab7ad137e9" class="bulleted-list"><li style="list-style-type:disc"><strong>气候特点</strong>：全程15-26℃，阳光充足，无严寒</li></ul><h3 id="2b7f98de-f13f-807d-9a4b-d89e7e32daa6" class=""><strong>💰</strong>总预算（双人）</h3><table id="2b7f98de-f13f-8000-9851-ce8c74c4b915" class="simple-table"><tbody><tr id="2b7f98de-f13f-80b9-84d7-de7a99ef38ec"><td id="&lt;FVn" class="">项目</td><td id="rq\l" class="">金额</td><td id="nYRx" class="">说明</td></tr><tr id="2b7f98de-f13f-80a6-a5f0-cccdce340caf"><td id="&lt;FVn" class="">交通</td><td id="rq\l" class="">6,000元</td><td id="nYRx" class="">含郑州-北海往返高铁、北海-海口机票、海口-万宁租车、南澳岛渡轮及岛内交通</td></tr><tr id="2b7f98de-f13f-8048-85cb-e0dfd9a11ad7"><td id="&lt;FVn" class="">住宿</td><td id="rq\l" class="">5,600元</td><td id="nYRx" class="">17晚特色住宿（海景民宿/公寓），均价330元/晚</td></tr><tr id="2b7f98de-f13f-8072-9cb1-c7239cb8ae75"><td id="&lt;FVn" class="">餐饮</td><td id="rq\l" class="">5,000元</td><td id="nYRx" class="">20天餐饮，日均250元（含海鲜、特色餐）</td></tr><tr id="2b7f98de-f13f-8019-815a-c10039a6e518"><td id="&lt;FVn" class="">景点门票</td><td id="rq\l" class="">2,000元</td><td id="nYRx" class="">含涠洲岛船票+门票、兴隆温泉、分界洲岛等</td></tr><tr id="2b7f98de-f13f-8058-950e-d4e023a395a2"><td id="&lt;FVn" class="">其他</td><td id="rq\l" class="">2,400元</td><td id="nYRx" class="">购物、娱乐、应急药品等</td></tr><tr id="2b7f98de-f13f-807d-8bb6-f994364f9d73"><td id="&lt;FVn" class=""><strong>总计</strong></td><td id="rq\l" class=""><strong>21,000元</strong></td><td id="nYRx" class=""><strong>人均10,500元</strong></td></tr></tbody></table><hr id="2b7f98de-f13f-80d2-ab4e-ca204358d3be"/><h2 id="2b7f98de-f13f-8069-9077-d893c2e729a1" class=""><strong>📅</strong>二、详细行程安排</h2><h3 id="2b7f98de-f13f-80a7-9109-c5c1b5c1d849" class="">第一阶段：广西北海（2月6日-2月10日，5天）</h3><ul id="2b7f98de-f13f-800e-9a74-e588a4296511" class="toggle"><li><details open=""><summary><strong>Day 1 - 2月6日：郑州→北海，初探海滨风情</strong></summary><table id="2b7f98de-f13f-800c-bd33-fda101549f7b" class="simple-table"><tbody><tr id="2b7f98de-f13f-806b-b8cf-e18234a2ed15"><td id="cPAX" class="">时间段</td><td id="IqrF" class="">活动内容</td><td id="tzCT" class="">住宿/费用</td><td id="VDk\" class="">餐饮推荐</td><td id="PFED" class="">摄影亮点</td><td id="dX?s" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-8069-a59c-c27435472db4"><td id="cPAX" class="">08:00-12:00</td><td id="IqrF" class="">郑州东站乘G93次高铁前往北海</td><td id="tzCT" class="">交通：已含</td><td id="VDk\" class="">—</td><td id="PFED" class="">—</td><td id="dX?s" class="">—</td></tr><tr id="2b7f98de-f13f-803e-bea6-dfdf28b46047"><td id="cPAX" class="">12:00-14:00</td><td id="IqrF" class="">抵达后入住侨港海居民宿（海景房）</td><td id="tzCT" class="">住宿：400元/晚</td><td id="VDk\" class="">—</td><td id="PFED" class="">—</td><td id="dX?s" class="">—</td></tr><tr id="2b7f98de-f13f-80a0-887a-e1a8825e9aa2"><td id="cPAX" class="">14:00-17:00</td><td id="IqrF" class="">休息适应</td><td id="tzCT" class="">—</td><td id="VDk\" class="">—</td><td id="PFED" class="">—</td><td id="dX?s" class="">—</td></tr><tr id="2b7f98de-f13f-80ce-be82-f5d92a008ad6"><td id="cPAX" class="">17:30-20:30</td><td id="IqrF" class="">侨港风情街海鲜晚餐</td><td id="tzCT" class="">餐饮：100元/人</td><td id="VDk\" class="">侨港鲜生海鲜大排档、越南卷粉</td><td id="PFED" class="">—</td><td id="dX?s" class="">—</td></tr><tr id="2b7f98de-f13f-8091-b49d-ef0928e83fe3"><td id="cPAX" class="">21:00-22:00</td><td id="IqrF" class="">北海老街夜景拍摄</td><td id="tzCT" class="">门票：免费</td><td id="VDk\" class="">—</td><td id="PFED" class="">老街骑楼光影、夜市烟火气</td><td id="dX?s" class="">海景民宿露台观星</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-8071-aabd-d7869c8423bb" class="toggle"><li><details open=""><summary><strong>Day 2 - 2月7日：涠洲岛一日游</strong></summary><table id="2b7f98de-f13f-80b9-bb68-fc22ad9b0c44" class="simple-table"><tbody><tr id="2b7f98de-f13f-8022-af02-f9615861d78e"><td id="&lt;aZJ" class="">时间段</td><td id="cpG}" class="">活动内容</td><td id="EJOk" class="">住宿/费用</td><td id="ZJNz" class="">餐饮推荐</td><td id="ruCP" class="">摄影亮点</td><td id="rqZf" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80b1-8840-e3bc9a195398"><td id="&lt;aZJ" class="">08:30-09:30</td><td id="cpG}" class="">民宿海景早餐</td><td id="EJOk" class="">—</td><td id="ZJNz" class="">—</td><td id="ruCP" class="">—</td><td id="rqZf" class="">—</td></tr><tr id="2b7f98de-f13f-804d-a5ca-e67a84100599"><td id="&lt;aZJ" class="">10:00-13:00</td><td id="cpG}" class="">涠洲岛一日游（8:30早班船）</td><td id="EJOk" class="">船票：240元/人</td><td id="ZJNz" class="">—</td><td id="ruCP" class="">—</td><td id="rqZf" class="">—</td></tr><tr id="2b7f98de-f13f-80be-9770-c93db1790213"><td id="&lt;aZJ" class="">13:30-15:00</td><td id="cpG}" class="">鳄鱼山火山公园+滴水丹屏</td><td id="EJOk" class="">门票：98元/人</td><td id="ZJNz" class="">—</td><td id="ruCP" class="">火山岩地貌、灯塔日落、彩色渔船</td><td id="rqZf" class="">火山公园情侣合影</td></tr><tr id="2b7f98de-f13f-804d-87d7-c876345e15f2"><td id="&lt;aZJ" class="">15:30-18:30</td><td id="cpG}" class="">南湾街午餐</td><td id="EJOk" class="">餐饮：150元/人</td><td id="ZJNz" class="">南湾鲜生海鲜、涠洲岛鱼丸</td><td id="ruCP" class="">—</td><td id="rqZf" class="">—</td></tr><tr id="2b7f98de-f13f-8090-8a83-e746f5a74efb"><td id="&lt;aZJ" class="">19:00-21:30</td><td id="cpG}" class="">天主教堂+五彩滩日落</td><td id="EJOk" class="">—</td><td id="ZJNz" class="">—</td><td id="ruCP" class="">—</td><td id="rqZf" class="">教堂浪漫瞬间</td></tr><tr id="2b7f98de-f13f-8049-96b0-d791ee1ceb1c"><td id="&lt;aZJ" class="">22:00-23:00</td><td id="cpG}" class="">返回北海，民宿观星/阅读</td><td id="EJOk" class="">—</td><td id="ZJNz" class="">—</td><td id="ruCP" class="">—</td><td id="rqZf" class="">—</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-8072-af7b-c40c04c875a1" class="toggle"><li><details open=""><summary><strong>Day 3 - 2月8日：银滩与红树林生态之旅</strong></summary><table id="2b7f98de-f13f-8034-8395-cf05b82fdd48" class="simple-table"><tbody><tr id="2b7f98de-f13f-80fc-ba6a-db17fb1f4df6"><td id="jWaF" class="">时间段</td><td id="cm@`" class="">活动内容</td><td id="vypu" class="">住宿/费用</td><td id="qIH=" class="">餐饮推荐</td><td id="^Y}u" class="">摄影亮点</td><td id="Pe{~" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-8022-8ef4-c208796e1333"><td id="jWaF" class="">07:30-09:00</td><td id="cm@`" class="">银滩晨拍+自由玩水</td><td id="vypu" class="">—</td><td id="qIH=" class="">—</td><td id="^Y}u" class="">银滩长焦浪花慢门</td><td id="Pe{~" class="">银滩牵手漫步</td></tr><tr id="2b7f98de-f13f-808f-807b-f803c4f95dea"><td id="jWaF" class="">09:30-12:00</td><td id="cm@`" class="">午餐后老街漫步</td><td id="vypu" class="">—</td><td id="qIH=" class="">李姨虾饼、海之韵海鲜</td><td id="^Y}u" class="">—</td><td id="Pe{~" class="">—</td></tr><tr id="2b7f98de-f13f-800a-b604-ec5d7951b442"><td id="jWaF" class="">12:30-14:00</td><td id="cm@`" class="">冠头岭国家森林公园</td><td id="vypu" class="">门票：50元/人</td><td id="qIH=" class="">—</td><td id="^Y}u" class="">—</td><td id="Pe{~" class="">—</td></tr><tr id="2b7f98de-f13f-8029-a633-d32838ada1a0"><td id="jWaF" class="">14:30-18:00</td><td id="cm@`" class="">金海湾红树林生态游</td><td id="vypu" class="">门票：60元/人</td><td id="qIH=" class="">—</td><td id="^Y}u" class="">红树林白鹭飞掠</td><td id="Pe{~" class="">红树林栈道私语</td></tr><tr id="2b7f98de-f13f-803d-9865-ed2fe355de3e"><td id="jWaF" class="">18:30-21:00</td><td id="cm@`" class="">侨港糖水+炒冰晚餐</td><td id="vypu" class="">餐饮：120元/人</td><td id="qIH=" class="">侨港糖水</td><td id="^Y}u" class="">—</td><td id="Pe{~" class="">—</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-80a9-b77c-e8e5108c3a0c" class="toggle"><li><details open=""><summary><strong>Day 4 - 2月9日：海底世界与潮雕秀</strong></summary><table id="2b7f98de-f13f-80ec-8fcc-e32d78112f35" class="simple-table"><tbody><tr id="2b7f98de-f13f-807a-a3c9-f314d6328a82"><td id="JLlB" class="">时间段</td><td id="aO]Q" class="">活动内容</td><td id="=Mxe" class="">住宿/费用</td><td id="{CbA" class="">餐饮推荐</td><td id="SoQy" class="">摄影亮点</td><td id="dc\c" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-8094-825d-c29191292872"><td id="JLlB" class="">09:30-12:00</td><td id="aO]Q" class="">北海海底世界或博物馆（二选一）</td><td id="=Mxe" class="">门票：100元/人</td><td id="{CbA" class="">—</td><td id="SoQy" class="">海洋生物微距</td><td id="dc\c" class="">海底世界浪漫共赏</td></tr><tr id="2b7f98de-f13f-809e-a7d4-fc6f8656a284"><td id="JLlB" class="">12:30-14:00</td><td id="aO]Q" class="">外沙岛海鲜市场自选加工</td><td id="=Mxe" class="">餐饮：150元/人</td><td id="{CbA" class="">外沙岛海鲜加工、香山驿馆粤菜</td><td id="SoQy" class="">—</td><td id="dc\c" class="">—</td></tr><tr id="2b7f98de-f13f-8022-a779-db43be8f43e6"><td id="JLlB" class="">14:30-17:30</td><td id="aO]Q" class="">银滩潮雕秀（20:00）</td><td id="=Mxe" class="">门票：30元/人</td><td id="{CbA" class="">—</td><td id="SoQy" class="">潮雕秀灯光</td><td id="dc\c" class="">—</td></tr><tr id="2b7f98de-f13f-803b-83f0-d7b9d095bd34"><td id="JLlB" class="">18:00-21:00</td><td id="aO]Q" class="">民宿海景晚餐</td><td id="=Mxe" class="">—</td><td id="{CbA" class="">—</td><td id="SoQy" class="">—</td><td id="dc\c" class="">—</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-801c-a94d-e4089cb76fd3" class="toggle"><li><details open=""><summary><strong>Day 5 - 2月10日：自由活动与转场准备</strong></summary><table id="2b7f98de-f13f-8056-8033-eb2ef314e4a6" class="simple-table"><tbody><tr id="2b7f98de-f13f-8035-9abd-c4c7ad8763dc"><td id="|~Fl" class="">时间段</td><td id="OLo[" class="">活动内容</td><td id="hD}c" class="">住宿/费用</td><td id="smDy" class="">餐饮推荐</td><td id="~&lt;s=" class="">摄影亮点</td><td id="{Vr]" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80b4-aaa6-d94f9dbfcebd"><td id="|~Fl" class="">上午</td><td id="OLo[" class="">自由活动或酒店SPA</td><td id="hD}c" class="">—</td><td id="smDy" class="">—</td><td id="~&lt;s=" class="">—</td><td id="{Vr]" class="">—</td></tr><tr id="2b7f98de-f13f-8013-9ebc-e542d6dc83e9"><td id="|~Fl" class="">中午</td><td id="OLo[" class="">退房，前往机场/车站</td><td id="hD}c" class="">—</td><td id="smDy" class="">简餐</td><td id="~&lt;s=" class="">—</td><td id="{Vr]" class="">—</td></tr></tbody></table></details></li></ul><p id="2b7f98de-f13f-80c9-8942-ee72a5658df6" class=""><strong>北海小计</strong>：住宿4晚1,600元 + 餐饮约650元/人 + 门票约438元/人 + 船票240元/人</p><hr id="2b7f98de-f13f-8028-b755-ed7b7bab4f59"/><h3 id="2b7f98de-f13f-80ab-a8ab-f1dd20e697fd" class="">第二阶段：广东南澳岛（2月11日-2月15日，5天）</h3><ul id="2b7f98de-f13f-808c-a113-d2eecc7a4200" class="toggle"><li><details open=""><summary><strong>Day 6 - 2月11日：北海→南澳岛</strong></summary><table id="2b7f98de-f13f-809a-8a63-e04cb7c12fb8" class="simple-table"><tbody><tr id="2b7f98de-f13f-801f-a2c8-fbebc30a2c13"><td id="\[t_" class="">时间段</td><td id="szQ{" class="">活动内容</td><td id="CJc]" class="">住宿/费用</td><td id="`[:?" class="">餐饮推荐</td><td id="Ehk[" class="">摄影亮点</td><td id="p&lt;av" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80c6-b7fd-ef8eb9027e68"><td id="\[t_" class="">12:30-14:30</td><td id="szQ{" class="">北海→广州南动车（5.5h）→汕头高铁（2h）</td><td id="CJc]" class="">动车：400元/人</td><td id="`[:?" class="">—</td><td id="Ehk[" class="">—</td><td id="p&lt;av" class="">—</td></tr><tr id="2b7f98de-f13f-80ca-b19c-ca77ae100678"><td id="\[t_" class="">15:00-17:00</td><td id="szQ{" class="">汕头市区至南澳岛渡轮</td><td id="CJc]" class="">渡轮：100元/人</td><td id="`[:?" class="">—</td><td id="Ehk[" class="">小公园骑楼群、跨海大桥</td><td id="p&lt;av" class="">渡轮甲板看日落</td></tr><tr id="2b7f98de-f13f-80d8-84c5-cfbc92bbe0b8"><td id="\[t_" class="">17:30-入住</td><td id="szQ{" class="">入住青澳湾海居客栈（海景房）</td><td id="CJc]" class="">住宿：300元/晚</td><td id="`[:?" class="">—</td><td id="Ehk[" class="">—</td><td id="p&lt;av" class="">—</td></tr><tr id="2b7f98de-f13f-80bc-bca3-d97973c41b4a"><td id="\[t_" class="">19:00-21:30</td><td id="szQ{" class="">民宿附近海鲜晚餐</td><td id="CJc]" class="">餐饮：60元/人</td><td id="`[:?" class="">富苑饮食（卤鹅、生腌）、许大姐的菜</td><td id="Ehk[" class="">—</td><td id="p&lt;av" class="">—</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-808f-914e-f2cc7a51b698" class="toggle"><li><details open=""><summary><strong>Day 7 - 2月12日：环岛骑行与森林徒步</strong></summary><table id="2b7f98de-f13f-8098-b3f7-f6eb3a8b1faa" class="simple-table"><tbody><tr id="2b7f98de-f13f-8054-ba60-e9b160cb505e"><td id="]EdP" class="">时间段</td><td id="TyiP" class="">活动内容</td><td id="\X&gt;F" class="">住宿/费用</td><td id="WQ]u" class="">餐饮推荐</td><td id="V[ht" class="">摄影亮点</td><td id="yERk" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-8037-a864-d68f8b2ef145"><td id="]EdP" class="">07:30-09:00</td><td id="TyiP" class="">青澳湾日出拍摄</td><td id="\X&gt;F" class="">—</td><td id="WQ]u" class="">—</td><td id="V[ht" class="">灯塔剪影、海雾晨曦</td><td id="yERk" class="">—</td></tr><tr id="2b7f98de-f13f-80c3-8b8f-f4bcd944ccdd"><td id="]EdP" class="">09:30-12:00</td><td id="TyiP" class="">环岛公路骑行（租电动车80元/天）</td><td id="\X&gt;F" class="">租车：80元/天</td><td id="WQ]u" class="">—</td><td id="V[ht" class="">—</td><td id="yERk" class="">环岛骑行追日落</td></tr><tr id="2b7f98de-f13f-80a5-8030-c618f1d07876"><td id="]EdP" class="">12:30-14:00</td><td id="TyiP" class="">云澳渔港海鲜午餐</td><td id="\X&gt;F" class="">餐饮：140元/人</td><td id="WQ]u" class="">云澳鱼丸汤、紫菜炒饭、鱿鱼粥</td><td id="V[ht" class="">—</td><td id="yERk" class="">—</td></tr><tr id="2b7f98de-f13f-80dd-ade9-fabc8fff95d7"><td id="]EdP" class="">14:30-18:00</td><td id="TyiP" class="">黄花山国家森林公园徒步</td><td id="\X&gt;F" class="">—</td><td id="WQ]u" class="">—</td><td id="V[ht" class="">森林光影</td><td id="yERk" class="">—</td></tr><tr id="2b7f98de-f13f-8056-bc2c-ecb2e17d7afb"><td id="]EdP" class="">18:30-21:00</td><td id="TyiP" class="">后宅镇烧烤晚餐</td><td id="\X&gt;F" class="">—</td><td id="WQ]u" class="">—</td><td id="V[ht" class="">—</td><td id="yERk" class="">—</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-807b-be5b-cc0109e87e91" class="toggle"><li><details open=""><summary><strong>Day 8 - 2月13日：自由活动日</strong></summary><table id="2b7f98de-f13f-804e-9d32-c1db05b2367f" class="simple-table"><tbody><tr id="2b7f98de-f13f-803d-bd93-dbe89f4573d2"><td id="uFx}" class="">时间段</td><td id="ev\|" class="">活动内容</td><td id=";~Is" class="">住宿/费用</td><td id=";HVs" class="">餐饮推荐</td><td id="Wn`f" class="">摄影亮点</td><td id="_I?C" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80cf-8375-d4bd08108f48"><td id="uFx}" class="">全天</td><td id="ev\|" class="">自由活动：可选赶海、海滩SPA或观景平台发呆</td><td id=";~Is" class="">住宿：300元/晚餐饮：100元/人</td><td id=";HVs" class="">杏花吴记牛肉火锅</td><td id="Wn`f" class="">北回归线标志塔</td><td id="_I?C" class="">海滩私密时光</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-8035-96c3-ee3364f3b5f6" class="toggle"><li><details open=""><summary><strong>Day 9 - 2月14日：情人节特别安排</strong></summary><table id="2b7f98de-f13f-80d5-9e8e-f617b3d907c5" class="simple-table"><tbody><tr id="2b7f98de-f13f-8089-add9-d7f1deaad28d"><td id="qLuz" class="">时间段</td><td id="CmUT" class="">活动内容</td><td id="aycF" class="">住宿/费用</td><td id="@Iqr" class="">餐饮推荐</td><td id="mB:t" class="">摄影亮点</td><td id="hVn}" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-8033-a5a4-d62c400c5716"><td id="qLuz" class="">09:00-12:00</td><td id="CmUT" class=""><strong>情人节特别安排</strong>：青澳湾海边野餐（自备食材）</td><td id="aycF" class="">野餐：50元/人</td><td id="@Iqr" class="">—</td><td id="mB:t" class="">—</td><td id="hVn}" class="">情人节海边野餐</td></tr><tr id="2b7f98de-f13f-805a-b95b-c470299c1e77"><td id="qLuz" class="">14:00-18:00</td><td id="CmUT" class="">返回汕头市区</td><td id="aycF" class="">—</td><td id="@Iqr" class="">—</td><td id="mB:t" class="">—</td><td id="hVn}" class="">—</td></tr><tr id="2b7f98de-f13f-8026-ac43-d1a580cf5f64"><td id="qLuz" class="">18:30-21:30</td><td id="CmUT" class="">小公园夜景+牛肉火锅</td><td id="aycF" class="">餐饮：100元/人</td><td id="@Iqr" class="">老妈宫粽球+粿条汤</td><td id="mB:t" class="">礐石大桥夜景长曝光</td><td id="hVn}" class="">—</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-8032-b73c-eb5541abe75e" class="toggle"><li><details open=""><summary><strong>Day 10 - 2月15日：汕头早茶体验</strong></summary><table id="2b7f98de-f13f-806b-b4aa-fe9949a7f1e1" class="simple-table"><tbody><tr id="2b7f98de-f13f-80a1-8132-f7d57055484f"><td id="{shU" class="">时间段</td><td id="_I|B" class="">活动内容</td><td id="bdq`" class="">住宿/费用</td><td id="tLst" class="">餐饮推荐</td><td id=";[im" class="">摄影亮点</td><td id="LKh?" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80ee-8eb4-d194a6056f8c"><td id="{shU" class="">上午</td><td id="_I|B" class="">汕头早茶体验</td><td id="bdq`" class="">—</td><td id="tLst" class="">早茶：50元/人</td><td id=";[im" class="">传统早茶蒸汽感</td><td id="LKh?" class="">早茶慢时光</td></tr><tr id="2b7f98de-f13f-8099-aee2-e7c8fad91248"><td id="{shU" class="">中午</td><td id="_I|B" class="">退房，前往揭阳潮汕机场</td><td id="bdq`" class="">交通：100元/人</td><td id="tLst" class="">—</td><td id=";[im" class="">—</td><td id="LKh?" class="">—</td></tr></tbody></table></details></li></ul><p id="2b7f98de-f13f-8023-b8e5-c2f2fef5fb57" class=""><strong>南澳岛小计</strong>：住宿4晚1,200元 + 餐饮约450元/人 + 交通约580元/人</p><hr id="2b7f98de-f13f-807f-8ddf-c309ae82c487"/><h3 id="2b7f98de-f13f-8099-b75d-e96dfdd99518" class="">第三阶段：海南万宁（2月16日-2月22日，7天）</h3><ul id="2b7f98de-f13f-806d-b3f6-c8442d3c91d1" class="toggle"><li><details open=""><summary><strong>Day 11 - 2月16日：揭阳→万宁</strong></summary><table id="2b7f98de-f13f-808b-a3d0-fa7595d120cc" class="simple-table"><tbody><tr id="2b7f98de-f13f-80c6-95b0-f85653759c9d"><td id="sUxg" class="">时间段</td><td id="a}F{" class="">活动内容</td><td id="hMoO" class="">住宿/费用</td><td id="P&lt;o:" class="">餐饮推荐</td><td id="suyp" class="">摄影亮点</td><td id="dlt:" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80ba-b079-c289527a0c02"><td id="sUxg" class="">12:30-14:30</td><td id="a}F{" class="">揭阳→海口美兰机场（1.5h）</td><td id="hMoO" class="">机票：600元/人</td><td id="P&lt;o:" class="">—</td><td id="suyp" class="">—</td><td id="dlt:" class="">—</td></tr><tr id="2b7f98de-f13f-80b3-a9d2-eafdb805a5f8"><td id="sUxg" class="">15:00-17:00</td><td id="a}F{" class="">机场租车自驾至万宁（1.5h）</td><td id="hMoO" class="">租车：200元/天</td><td id="P&lt;o:" class="">—</td><td id="suyp" class="">椰林公路、石梅湾日落</td><td id="dlt:" class="">自驾沿海公路</td></tr><tr id="2b7f98de-f13f-80dd-92c4-e8332380542c"><td id="sUxg" class="">17:30-入住</td><td id="a}F{" class="">入住石梅湾海景公寓</td><td id="hMoO" class="">住宿：350元/晚</td><td id="P&lt;o:" class="">—</td><td id="suyp" class="">—</td><td id="dlt:" class="">—</td></tr><tr id="2b7f98de-f13f-801f-97f3-d26556ed1eb5"><td id="sUxg" class="">19:00-21:30</td><td id="a}F{" class="">兴隆南洋风味晚餐</td><td id="hMoO" class="">餐饮：80元/人</td><td id="P&lt;o:" class="">兴隆咖啡、印尼糕点</td><td id="suyp" class="">—</td><td id="dlt:" class="">—</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-80d0-a6d3-f901ef9442b9" class="toggle"><li><details open=""><summary><strong>Day 12 - 2月17日：日月湾冲浪体验</strong></summary><table id="2b7f98de-f13f-8086-a31e-d5aa9a2f4549" class="simple-table"><tbody><tr id="2b7f98de-f13f-803c-82b1-f7719352569f"><td id="SnZ=" class="">时间段</td><td id="SNnW" class="">活动内容</td><td id="N\oW" class="">住宿/费用</td><td id="j&gt;mE" class="">餐饮推荐</td><td id="yqy]" class="">摄影亮点</td><td id="jQF]" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-8067-8630-d2a3e546d847"><td id="SnZ=" class="">07:30-09:00</td><td id="SNnW" class="">日月湾日出摄影</td><td id="N\oW" class="">—</td><td id="j&gt;mE" class="">—</td><td id="yqy]" class="">—</td><td id="jQF]" class="">—</td></tr><tr id="2b7f98de-f13f-80d1-8093-c8d1bc6b1aa4"><td id="SnZ=" class="">09:30-12:00</td><td id="SNnW" class="">沙滩自由活动</td><td id="N\oW" class="">—</td><td id="j&gt;mE" class="">—</td><td id="yqy]" class="">—</td><td id="jQF]" class="">—</td></tr><tr id="2b7f98de-f13f-8023-90f0-ca1d3bf598c6"><td id="SnZ=" class="">12:30-14:00</td><td id="SNnW" class="">GROM冲浪餐厅午餐</td><td id="N\oW" class="">餐饮：140元/人</td><td id="j&gt;mE" class="">太琼糟粕醋、和乐蟹</td><td id="yqy]" class="">—</td><td id="jQF]" class="">—</td></tr><tr id="2b7f98de-f13f-8060-af74-c58efcda8f7e"><td id="SnZ=" class="">14:30-18:00</td><td id="SNnW" class=""><strong>日月湾冲浪体验</strong>（2h课程300元/人）</td><td id="N\oW" class="">冲浪课：300元/人</td><td id="j&gt;mE" class="">—</td><td id="yqy]" class="">冲浪动感抓拍</td><td id="jQF]" class="">携手冲浪体验</td></tr><tr id="2b7f98de-f13f-802f-8032-dac04c418efc"><td id="SnZ=" class="">18:30-21:00</td><td id="SNnW" class="">滨海公路骑行</td><td id="N\oW" class="">—</td><td id="j&gt;mE" class="">—</td><td id="yqy]" class="">公路海景延时</td><td id="jQF]" class="">—</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-80ce-acec-ddf7791a3f14" class="toggle"><li><details open=""><summary><strong>Day 13 - 2月18日：石梅湾与加井岛浮潜</strong></summary><table id="2b7f98de-f13f-8032-adea-cf9264bee998" class="simple-table"><tbody><tr id="2b7f98de-f13f-8032-90b6-e3023f406d83"><td id="cUVr" class="">时间段</td><td id="WOpT" class="">活动内容</td><td id="_@ce" class="">住宿/费用</td><td id="`bqo" class="">餐饮推荐</td><td id="i@&gt;^" class="">摄影亮点</td><td id="wkMj" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-803a-be14-d47f54ee470b"><td id="cUVr" class="">全天</td><td id="WOpT" class=""><strong>石梅湾+加井岛浮潜</strong>上午沙滩休闲，下午乘船登岛（需提前预约）</td><td id="_@ce" class="">船票：200元/人餐饮：120元/人</td><td id="`bqo" class="">兴隆南洋风味</td><td id="i@&gt;^" class="">玻璃海水、珊瑚礁</td><td id="wkMj" class="">浮潜探索海底世界</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-8094-abff-eb1fa8b570ba" class="toggle"><li><details open=""><summary><strong>Day 14 - 2月19日：热带植物园与咖啡庄园</strong></summary><table id="2b7f98de-f13f-804e-8558-dafb7cc22a88" class="simple-table"><tbody><tr id="2b7f98de-f13f-80b9-a18f-c93eb41b28e5"><td id="YQNx" class="">时间段</td><td id="}&lt;ur" class="">活动内容</td><td id="[\VN" class="">住宿/费用</td><td id="^N\j" class="">餐饮推荐</td><td id="rbIC" class="">摄影亮点</td><td id="bsCb" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80d6-ad73-dcae5b3f81f5"><td id="YQNx" class="">上午</td><td id="}&lt;ur" class="">兴隆热带植物园（60元/人）</td><td id="[\VN" class="">门票：60元/人</td><td id="^N\j" class="">—</td><td id="rbIC" class="">热带植物微距</td><td id="bsCb" class="">—</td></tr><tr id="2b7f98de-f13f-802f-875b-e1dada09c7dd"><td id="YQNx" class="">下午</td><td id="}&lt;ur" class="">兴隆华侨农场咖啡庄园体验</td><td id="[\VN" class="">餐饮：100元/人</td><td id="^N\j" class="">兴隆咖啡配印尼糕</td><td id="rbIC" class="">—</td><td id="bsCb" class="">咖啡庄园手冲体验</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-80e1-ab31-fedec888b2e7" class="toggle"><li><details open=""><summary><strong>Day 15 - 2月20日：分界洲岛一日游</strong></summary><table id="2b7f98de-f13f-805a-acd3-f6c214444db0" class="simple-table"><tbody><tr id="2b7f98de-f13f-800b-8b98-d66c217e1a1e"><td id="r&lt;ae" class="">时间段</td><td id="gJ^C" class="">活动内容</td><td id="]n;K" class="">住宿/费用</td><td id="dUuc" class="">餐饮推荐</td><td id="fmDk" class="">摄影亮点</td><td id="`krx" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80d9-8da8-cff921de4de8"><td id="r&lt;ae" class="">全天</td><td id="gJ^C" class=""><strong>分界洲岛一日游</strong>（门票+船票约200元）海洋剧场+白沙滩拍照</td><td id="]n;K" class="">门票：200元/人餐饮：120元/人</td><td id="dUuc" class="">岛上自助餐</td><td id="fmDk" class="">蓝色果冻海、悬崖观海台</td><td id="`krx" class="">海岛浪漫旅拍</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-8082-9b57-cc63632caaa8" class="toggle"><li><details open=""><summary><strong>Day 16 - 2月21日：自由日</strong></summary><table id="2b7f98de-f13f-8036-9d28-f9d941dff723" class="simple-table"><tbody><tr id="2b7f98de-f13f-80ab-bcdc-dd287173de37"><td id="d;;N" class="">时间段</td><td id="b]}Z" class="">活动内容</td><td id="Qvry" class="">住宿/费用</td><td id="OlVJ" class="">餐饮推荐</td><td id="T\Pl" class="">摄影亮点</td><td id="&lt;IP]" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-80c1-889f-eae058914636"><td id="d;;N" class="">自由日</td><td id="b]}Z" class="">可选：滨海旅游公路拍摄（烟墩海→大花角）或酒店SPA</td><td id="Qvry" class="">餐饮：100元/人</td><td id="OlVJ" class="">本地老爸茶</td><td id="T\Pl" class="">公路大片、海天一线</td><td id="&lt;IP]" class="">酒店私密SPA时光</td></tr></tbody></table></details></li></ul><ul id="2b7f98de-f13f-806b-975e-e05c5cfc4658" class="toggle"><li><details open=""><summary><strong>Day 17 - 2月22日：转场海口</strong></summary><table id="2b7f98de-f13f-8057-b2ee-d05d340d3a2e" class="simple-table"><tbody><tr id="2b7f98de-f13f-80f9-b4a2-f91213e8fd7f"><td id="f``X" class="">时间段</td><td id="MuKH" class="">活动内容</td><td id="CFwN" class="">住宿/费用</td><td id="~nNa" class="">餐饮推荐</td><td id="]|XB" class="">摄影亮点</td><td id="tUVY" class="">情侣体验</td></tr><tr id="2b7f98de-f13f-8060-9f10-dec0abcad22e"><td id="f``X" class="">上午</td><td id="MuKH" class="">退房，自驾还车至海口</td><td id="CFwN" class="">交通：100元/人</td><td id="~nNa" class="">—</td><td id="]|XB" class="">—</td><td id="tUVY" class="">—</td></tr><tr id="2b7f98de-f13f-807e-be68-d5063b13ea68"><td id="f``X" class="">中午</td><td id="MuKH" class="">海口骑楼老街午餐</td><td id="CFwN" class="">餐饮：50元/人</td><td id="~nNa" class="">海口辣汤饭</td><td id="]|XB" class="">骑楼建筑细节</td><td id="tUVY" class="">—</td></tr></tbody></table></details></li></ul><p id="2b7f98de-f13f-8015-96a9-ec40f5d6bc4d" class=""><strong>万宁小计</strong>：住宿6晚2,100元 + 餐饮约710元/人 + 门票/体验约760元/人 + 租车600元</p><hr id="2b7f98de-f13f-80a4-a0a5-f5be1ab72b5b"/><h3 id="2b7f98de-f13f-8030-a407-dbb76e207f2c" class="">第四阶段：返程缓冲（2月23日-2月25日，3天）</h3><table id="2b7f98de-f13f-80e7-9713-e40fd15eb95b" class="simple-table"><tbody><tr id="2b7f98de-f13f-80bb-ae5f-dfea29368a91"><td id="khPU" class="">日期</td><td id="WsDS" class="">活动内容</td><td id="|IUf" class="">住宿/费用</td><td id="kRE@" class="">备注</td></tr><tr id="2b7f98de-f13f-8034-b052-f12ab4d2d31d"><td id="khPU" class="">Day 182月23日</td><td id="WsDS" class="">海口市区休整：逛骑楼老街、海南省博物馆</td><td id="|IUf" class="">住宿：300元/晚</td><td id="kRE@" class="">根据航班灵活调整</td></tr><tr id="2b7f98de-f13f-808c-96bb-de99746caae6"><td id="khPU" class="">Day 192月24日</td><td id="WsDS" class="">假日海滩或免税店购物</td><td id="|IUf" class="">餐饮：150元/人</td><td id="kRE@" class="">弹性安排</td></tr><tr id="2b7f98de-f13f-80be-b5ca-cf97c876ce99"><td id="khPU" class="">Day 202月25日</td><td id="WsDS" class="">海口美兰机场返程回郑州</td><td id="|IUf" class="">交通：800元/人</td><td id="kRE@" class="">结束浪漫之旅</td></tr></tbody></table><hr id="2b7f98de-f13f-8016-b29e-d27ebfafe307"/><h2 id="2b7f98de-f13f-8046-9ee3-f131a1d938c1" class=""><strong>⚠️</strong>三、重要注意事项</h2><h3 id="2b7f98de-f13f-8044-8243-f28f73262272" class="">1. 春节预订</h3><ul id="2b7f98de-f13f-8002-bc7b-f0201f2e9015" class="bulleted-list"><li style="list-style-type:disc"><strong>交通</strong>：高铁/机票需提前30天预订，南澳大桥在1月28日-2月4日对小型客车免费通行</li></ul><ul id="2b7f98de-f13f-80e6-9bb8-dc2b33351c5a" class="bulleted-list"><li style="list-style-type:disc"><strong>住宿</strong>：所有海景民宿需提前2-3周预订，春节价格上浮30-50%</li></ul><ul id="2b7f98de-f13f-80ff-9c93-d0cfde154558" class="bulleted-list"><li style="list-style-type:disc"><strong>门票</strong>：涠洲岛船票提前3天在&quot;来游吧&quot;公众号抢购；加井岛限流1000人/天，需通过酒店代订</li></ul><h3 id="2b7f98de-f13f-80ab-922e-dbd4cc4c664f" class="">2. 天气与着装</h3><ul id="2b7f98de-f13f-800c-898c-f0f5a582c839" class="bulleted-list"><li style="list-style-type:disc"><strong>北海</strong>：18-24℃，长袖+薄外套，紫外线强（SPF50+防晒霜必备）</li></ul><ul id="2b7f98de-f13f-80af-9175-c4e162acf4d0" class="bulleted-list"><li style="list-style-type:disc"><strong>南澳岛</strong>：15-21℃，早晚温差大，带防风外套和长袖卫衣</li></ul><ul id="2b7f98de-f13f-807f-a800-dd2e5e8e29fd" class="bulleted-list"><li style="list-style-type:disc"><strong>万宁</strong>：20-26℃，夏季衣物，备轻便雨衣和防蚊用品</li></ul><h3 id="2b7f98de-f13f-8071-95c5-dacad641438a" class="">3. 交通建议</h3><ul id="2b7f98de-f13f-8039-b7ec-eaeddb5694ba" class="bulleted-list"><li style="list-style-type:disc"><strong>岛上交通</strong>：南澳岛/涠洲岛无出租车，务必租电动车（80-150元/天，续航100km），提前规划充电桩位置（青澳湾、后宅镇）</li></ul><ul id="2b7f98de-f13f-80d7-b0de-f3822a4a3e5d" class="bulleted-list"><li style="list-style-type:disc"><strong>租车</strong>：海口机场租SUV（约200元/天），务必购买全险</li></ul><ul id="2b7f98de-f13f-8095-8e5a-def2a739fa1e" class="bulleted-list"><li style="list-style-type:disc"><strong>错峰出行</strong>：避开10:00-12:00、16:00-18:00高峰时段</li></ul><h3 id="2b7f98de-f13f-8028-a10f-ef9725e02822" class="">4. 健康与安全</h3><ul id="2b7f98de-f13f-80bd-86e4-ea87c12ca93e" class="bulleted-list"><li style="list-style-type:disc">携带晕船药（涠洲岛、加井岛可能颠簸）</li></ul><ul id="2b7f98de-f13f-8047-854e-dcdd1afd1941" class="bulleted-list"><li style="list-style-type:disc">海鲜过敏者慎食，选择正规餐厅</li></ul><ul id="2b7f98de-f13f-8016-a24a-fe3f164ce7ba" class="bulleted-list"><li style="list-style-type:disc">海边礁石湿滑，切勿冒险进入危险区域</li></ul><ul id="2b7f98de-f13f-80dd-ada4-e16914b7761a" class="bulleted-list"><li style="list-style-type:disc">电动车环岛注意电量，避免抛锚</li></ul><hr id="2b7f98de-f13f-8087-bcd3-f68fe8a20d26"/><h2 id="2b7f98de-f13f-80d4-b4cc-d4c66e37e10d" class="">四、特色体验与摄影指南</h2><h3 id="2b7f98de-f13f-8036-8025-e6a941326e95" class="">情侣专属浪漫时刻</h3><ol type="1" id="2b7f98de-f13f-806d-8b8f-ce63aab4f166" class="numbered-list" start="1"><li><strong>Day 2 涠洲岛</strong>：鳄鱼山火山公园岩石上拍情侣剪影，教堂前浪漫许愿</li></ol><ol type="1" id="2b7f98de-f13f-8047-a893-c2bfac464734" class="numbered-list" start="2"><li><strong>Day 7 南澳岛</strong>：环岛公路电动车追日落，灯塔下双人合影</li></ol><ol type="1" id="2b7f98de-f13f-800f-8d39-fa47bf6271e0" class="numbered-list" start="3"><li><strong>Day 9 情人节</strong>：青澳湾海边野餐（自备香槟、水果），专属二人时光</li></ol><ol type="1" id="2b7f98de-f13f-80bd-830c-da77c52497f1" class="numbered-list" start="4"><li><strong>Day 12 万宁</strong>：携手冲浪体验，滨海公路骑行并肩看海</li></ol><ol type="1" id="2b7f98de-f13f-8028-9a40-dded9d0f16a0" class="numbered-list" start="5"><li><strong>全程</strong>：每日海景早餐、民宿观星、沙滩漫步</li></ol><h3 id="2b7f98de-f13f-80a7-b40e-fa5cce8a80bf" class="">摄影装备与技巧</h3><p id="2b7f98de-f13f-804c-8b9a-dfdf1f9cca96" class=""><strong>必带装备</strong>：</p><ul id="2b7f98de-f13f-8089-8da6-d351f6eff58a" class="bulleted-list"><li style="list-style-type:disc">三脚架（拍慢门海浪、夜景长曝光）</li></ul><ul id="2b7f98de-f13f-80c5-93f6-f41e94b26365" class="bulleted-list"><li style="list-style-type:disc">偏振镜（减少水面反光，增强天空蓝）</li></ul><ul id="2b7f98de-f13f-8033-9a25-d804edd79b46" class="bulleted-list"><li style="list-style-type:disc">镜头建议：16-35mm（风光）、24-70mm（人文）、70-200mm（压缩海景）</li></ul><ul id="2b7f98de-f13f-809b-ae22-e9364655cb9e" class="bulleted-list"><li style="list-style-type:disc">无人机：南澳岛、万宁可飞（避开军事区）</li></ul><p id="2b7f98de-f13f-8067-92bf-eca35afb0173" class=""><strong>黄金拍摄点</strong>：</p><ul id="2b7f98de-f13f-80b6-a787-ce566b7462ff" class="bulleted-list"><li style="list-style-type:disc"><strong>日出</strong>：涠洲岛五彩滩、南澳岛青澳湾、万宁日月湾</li></ul><ul id="2b7f98de-f13f-801f-ad0a-e64435f1b7bd" class="bulleted-list"><li style="list-style-type:disc"><strong>日落</strong>：北海银滩、涠洲岛灯塔、南澳长山尾灯塔、万宁石梅湾</li></ul><ul id="2b7f98de-f13f-80ec-876b-f702834f6161" class="bulleted-list"><li style="list-style-type:disc"><strong>人文</strong>：北海老街骑楼、汕头小公园、海口骑楼老街</li></ul><ul id="2b7f98de-f13f-8001-8818-c93e8a43d7fd" class="bulleted-list"><li style="list-style-type:disc"><strong>美食</strong>：侨港夜市大光圈虚化、早茶蒸汽感</li></ul><h3 id="2b7f98de-f13f-80de-bd24-fa2821b49594" class="">美食地图精华</h3><ul id="2b7f98de-f13f-8002-a5eb-cebad3f10727" class="bulleted-list"><li style="list-style-type:disc"><strong>北海</strong>：侨港鲜生（海鲜）、李姨虾饼、侨港糖水</li></ul><ul id="2b7f98de-f13f-800b-b087-f72fb264398d" class="bulleted-list"><li style="list-style-type:disc"><strong>涠洲岛</strong>：南湾鲜生、涠洲岛鱼丸</li></ul><ul id="2b7f98de-f13f-80e2-8ee3-cca0101fdfc6" class="bulleted-list"><li style="list-style-type:disc"><strong>汕头</strong>：富苑饮食（卤鹅）、杏花吴记牛肉火锅、老妈宫粽球</li></ul><ul id="2b7f98de-f13f-8041-ac12-dc194d31ecdc" class="bulleted-list"><li style="list-style-type:disc"><strong>万宁</strong>：太琼糟粕醋、和乐蟹、兴隆咖啡+印尼糕点</li></ul><hr id="2b7f98de-f13f-8064-9b0c-df170dcf68bd"/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
