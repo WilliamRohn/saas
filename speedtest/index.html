@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络检测</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="network-test-page">
+        <div class="page-content">
+            <!-- 顶部状态标识 -->
+            <div class="header-section">
+                <h1 class="page-title">网络检测</h1>
+                <p class="page-subtitle">检查手机与校园网络系统连接是否通畅</p>
+                <div class="status-badge" id="statusBadge">
+                    <div class="dot"></div>
+                    <span id="statusText">网络通畅</span>
+                </div>
+            </div>
+
+            <div class="container-wrap">
+                <!-- 信息区域 -->
+                <div class="info-section">
+                    <div class="info-item">
+                        <div class="info-label">
+                            <img src="assets/last_check_time.png" alt="上次检测时间" class="info-icon">
+                            上次检测时间
+                        </div>
+                        <div class="info-value">
+                            <span id="lastCheckTime">--</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <img src="assets/continuous_days.png" alt="连续畅通天数" class="info-icon">
+                            连续畅通天数
+                        </div>
+                        <div class="info-value">
+                            <span id="checkNum">-</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">
+                            <img src="assets/today_check_count.png" alt="今日检测人数" class="info-icon">
+                            今日检测人数
+                        </div>
+                        <div class="info-value">
+                            <span id="todayCheckCount">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 网络图片区域 -->
+                <div class="network-image">
+                    <!-- 主图片 -->
+                    <img id="mainImage" src="assets/section_1_wait.png" alt="网络状态" class="main-image">
+                    
+                    <!-- 动画元素 -->
+                    <img src="assets/start_1.png" alt="星星1" class="start start1 hidden" id="star1">
+                    <img src="assets/start_small.png" alt="星星2" class="start start2 hidden" id="star2">
+                    <img src="assets/start_big.png" alt="星星3" class="start start3 hidden" id="star3">
+                    <img src="assets/start_small.png" alt="星星4" class="start start4 hidden" id="star4">
+                    <img src="assets/start_big.png" alt="星星5" class="start start5 hidden" id="star5">
+                    <img src="assets/spark.png" alt="火花" class="spark" id="spark">
+                    <img src="assets/link_1.png" alt="断联1" class="link link1" id="link1">
+                    <img src="assets/link_2.png" alt="断联2" class="link link2" id="link2">
+                    
+                    <!-- 状态图片 -->
+                    <img src="assets/section_2_wait.png" alt="等待状态" class="img2" id="img2Wait">
+                    <img src="assets/section_2_pending.png" alt="检测中状态" class="img2 hidden" id="img2Pending">
+                    <img src="assets/section_2_reject.png" alt="失败状态" class="img2 hidden" id="img2Reject">
+                    <img src="assets/section_3_wait.png" alt="状态3" class="img3">
+                </div>
+            </div>
+
+            <!-- 操作区域 -->
+            <div class="action-section">
+                <div class="repair-btn hidden" id="repairBtn">
+                    <div class="repair-text">报修</div>
+                    <div class="repair-count">已有<span id="reportedNum">0</span>人报修</div>
+                </div>
+                <button class="check-btn" id="checkBtn">
+                    立即检测
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 消息提示 -->
+    <div class="message-container" id="messageContainer"></div>
+
+    <!-- <script src="script.js"></script> -->
+    <script src="input.js"></script>
+</body>
+</html>

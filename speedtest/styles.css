@@ -1,0 +1,407 @@
+/* 全局样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.network-test-page {
+    min-height: 100vh;
+    background: url('./assets/bg.png') no-repeat top center;
+    background-color: white;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.page-content {
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: inherit;
+    box-sizing: border-box;
+}
+
+/* 头部区域 */
+.header-section {
+    margin-top: 50px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 3px 0;
+}
+
+.page-subtitle {
+    font-size: 14px;
+    color: #999;
+    margin: 0 0 13px 0;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    background-color: rgba(82, 196, 26, 0.1);
+    border-radius: 12px;
+    padding: 4px 7px 4px 5px;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.status-badge.reject {
+    background-color: rgba(255, 46, 46, 0.1);
+}
+
+.status-badge.reject span {
+    color: #FF2E2E;
+}
+
+.status-badge.reject .dot {
+    background-color: #FF2E2E;
+}
+
+.status-badge.pending {
+    background-color: #e0e4e8;
+}
+
+.status-badge.pending span {
+    color: #888888;
+}
+
+.status-badge.pending .dot {
+    background-color: #888888;
+}
+
+.status-badge span {
+    font-size: 10px;
+    color: #52c41a;
+}
+
+.status-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 3px;
+    background-color: #52c41a;
+}
+
+/* 容器包装 */
+.container-wrap {
+    width: calc(100vw - 25px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* 信息区域 */
+.info-section {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    z-index: 9;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.info-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+.info-value {
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    height: 36px;
+}
+
+.info-value span {
+    position: absolute;
+    white-space: nowrap;
+}
+
+#checkNum::after {
+    content: '天';
+    color: #333;
+    margin-left: 2px;
+}
+
+#todayCheckCount::after {
+    content: '人';
+    color: #333;
+    margin-left: 2px;
+}
+
+/* 网络图片区域 */
+.network-image {
+    position: relative;
+}
+
+.main-image {
+    max-width: 60vw;
+    height: auto;
+}
+
+.img2 {
+    width: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 85px;
+    height: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.img3 {
+    width: 127px;
+    position: absolute;
+    bottom: -82px;
+    right: -5px;
+    height: auto;
+}
+
+/* 动画元素 */
+.start {
+    opacity: 0;
+    height: auto;
+    position: absolute;
+    bottom: 50px;
+    left: 95px;
+    z-index: 99;
+    width: 20px;
+}
+
+.start1 {
+    opacity: 1;
+    left: 75px;
+    bottom: 66px;
+    z-index: 100;
+    width: 35px;
+    left: 70px;
+    bottom: 60px;
+    animation: arrowFadeOut 1s ease-out forwards;
+}
+
+.start2 {
+    animation: fadeOutBottomRight 1s linear 0.2s infinite;
+}
+
+.start3 {
+    animation: fadeOutBottomRight 1s linear 0.5s infinite;
+}
+
+.start4 {
+    animation: fadeOutBottomRight 1s linear 0.8s infinite;
+}
+
+.start5 {
+    animation: fadeOutBottomRight 1s linear 1s infinite;
+}
+
+.spark {
+    opacity: 0;
+    width: 72px;
+    position: absolute;
+    left: 90px;
+    bottom: 6px;
+    z-index: 100;
+}
+
+.spark.active {
+    opacity: 1;
+    animation: sparkScale 1s linear 0.2s infinite;
+}
+
+.link {
+    opacity: 0;
+    width: 40px;
+    position: absolute;
+}
+
+.link1.active {
+    opacity: 1;
+    left: 96px;
+    bottom: 28px;
+    animation: linkRotate 2s linear 0s infinite;
+}
+
+.link2.active {
+    opacity: 1;
+    left: 110px;
+    bottom: 12px;
+    transform-origin: 22px 20px;
+    animation: linkRotate 2s linear 0s infinite;
+}
+
+/* 操作区域 */
+.action-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1;
+    gap: 10px;
+    padding-bottom: 87px;
+    text-align: center;
+}
+
+.check-btn,
+.repair-btn {
+    height: 46px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.repair-btn {
+    width: 104px;
+    white-space: nowrap;
+    border: 1px solid #B2E9EB;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.repair-text {
+    line-height: 1.5;
+    color: #324148;
+}
+
+.repair-count {
+    line-height: 1.5;
+    color: #66C9CD;
+    font-size: 12px;
+}
+
+.check-btn {
+    width: 180px;
+    background: linear-gradient(270deg, #66DAFC 0%, #99FFE9 100%);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.check-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* 消息提示 */
+.message-container {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.message {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    animation: messageSlideIn 0.5s ease-out;
+}
+
+.message.success {
+    background: rgba(82, 196, 26, 0.9);
+}
+
+.message.error {
+    background: rgba(255, 46, 46, 0.9);
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 动画关键帧 */
+@keyframes arrowFadeOut {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+@keyframes fadeOutBottomRight {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(45px, 45px);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes linkRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
