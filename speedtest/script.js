@@ -170,7 +170,7 @@ async function startSpeedTest() {
     updateButtons();
     updateStatusBadge();
     let { data, code, msg } = await http.post("https://www.19980926.xyz/netcheck/test", {
-        appname: "net_work_token"
+        appname: "netcheck"
     })
 
     if (code == 200 && data.checkStatus == "NORMAL") {
