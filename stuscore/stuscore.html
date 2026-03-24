@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学生章节得分榜</title>
+  <link rel="stylesheet" href="./stuscore.css" />
+</head>
+<body>
+<div class="wrap">
+  <h1>学生章节得分榜</h1>
+  <p class="tips">点击表头可以排序（各章节分数）。<br>数据来自接口：<code>http://loclhost:8002/stu/score</code></p>
+
+  <div class="panel">
+    <div class="toolbar">
+      <div class="status" id="status"><span class="dot"></span><span>准备加载数据...</span></div>
+      <button id="reloadBtn" type="button">刷新</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div id="empty" class="empty" style="display:none;">暂无数据</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="./stuscore.js"></script>
+</body>
+</html>
