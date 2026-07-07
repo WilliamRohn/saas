@@ -4,164 +4,667 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>百度一下，你就知道</title>
-    <!-- 使用百度官方favicon -->
     <link rel="icon" href="https://www.baidu.com/favicon.ico">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: PingFang SC, Arial, sans-serif !important;
+        }
+
+        html,
         body {
-            font-family: Arial, "Microsoft YaHei", sans-serif;
+            min-height: 100%;
+        }
+
+        body {
+            min-width: 320px;
+            color: #222;
+            background: #fff;
+            font: 14px/1.5 Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #315efb;
+        }
+
+        .page {
             display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .s-top-wrap {
+            display: flex;
+            width: 100%;
+            height: 60px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            color: #222;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .s-top-left-new,
+        .s-top-right {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .s-top-left-new a,
+        .s-top-right a {
+            line-height: 60px;
+        }
+
+        .s-top-left-new .more-link {
+            position: relative;
+        }
+
+        .s-top-left-new .more-link::after {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 4px;
+            border: 4px solid transparent;
+            border-top-color: #626675;
+            vertical-align: -2px;
+        }
+
+        .weather {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #626675;
+        }
+
+        .weather-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #fff5a8 0 26%, #f9c646 27% 62%, transparent 63%),
+                        linear-gradient(135deg, #9fd7ff, #4e9ff8);
+            box-shadow: 0 1px 4px rgba(78, 110, 242, .25);
+        }
+
+        .login-btn {
+            min-width: 48px;
+            height: 24px;
+            padding: 0 12px;
+            border-radius: 6px;
+            color: #fff;
+            background: #4e6ef2;
+            line-height: 24px;
+            text-align: center;
+        }
+
+        .s-top-right .login-btn {
+            line-height: 24px;
+        }
+
+        .login-btn:hover {
+            color: #fff;
+            background: #315efb;
+        }
+
+        .main {
+            display: flex;
+            width: 100%;
+            flex: 1;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: #fff;
+            padding: 34px 20px 86px;
         }
+
         .logo {
+            display: block;
             width: 270px;
             height: 129px;
-            margin-bottom: 30px;
-            /* 使用百度官方Logo SVG */
-            background: url('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png') no-repeat center;
-            background-size: contain;
+            margin: 0 auto 10px;
+            background: url("https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png") center/contain no-repeat;
         }
+
+        .search-panel {
+            width: min(100%, 654px);
+        }
+
         .search-wrapper {
             display: flex;
-            align-items: center;
             position: relative;
-            margin-bottom: 25vh;
-        }
-        .search-input {
-            width: 500px;
+            width: 100%;
             height: 44px;
-            padding: 0 15px;
-            font-size: 16px;
-            border: 2px solid #c4c7ce;
-            border-right: none;
-            border-radius: 10px 0 0 10px;
-            outline: none;
-            color: #222;
-            transition: border-color 0.3s;
         }
-        .search-input:focus {
+
+        .search-input {
+            width: calc(100% - 108px);
+            height: 44px;
+            padding: 0 48px 0 20px;
+            border: 2px solid #c4c7ce;
+            border-right: 0;
+            border-radius: 10px 0 0 10px;
+            outline: 0;
+            color: #222;
+            font-size: 16px;
+            line-height: 44px;
+            transition: border-color .18s ease;
+        }
+
+        .search-wrapper:focus-within .search-input {
             border-color: #4e6ef2;
         }
+
+        .camera-btn {
+            position: absolute;
+            top: 0;
+            right: 116px;
+            width: 40px;
+            height: 44px;
+            border: 0;
+            color: #9195a3;
+            background: transparent;
+            cursor: pointer;
+            font-size: 30px;
+            line-height: 44px;
+        }
+
+        .camera-btn:hover {
+            color: #315efb;
+        }
+
         .search-btn {
             width: 108px;
             height: 44px;
-            background: #4e6ef2;
-            color: #fff;
-            font-size: 17px;
-            border: none;
+            border: 0;
             border-radius: 0 10px 10px 0;
+            color: #fff;
+            background: #4e6ef2;
             cursor: pointer;
-            letter-spacing: 2px;
-            transition: background 0.3s, transform 0.1s;
+            font-size: 17px;
+            line-height: 44px;
+            transition: background .18s ease, transform .12s ease;
         }
-        .search-btn:hover { background: #4662d9; }
+
+        .search-btn:hover {
+            background: #4662d9;
+        }
+
         .search-btn.clicking {
-            transform: scale(0.95);
-            background: #3a54c4;
+            transform: scale(.97);
+            background: #315efb;
         }
-        /* 光标闪烁动画 */
+
         .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 18px;
-            background: #333;
+            display: none;
             position: absolute;
-            left: 15px;
             top: 50%;
-            transform: translateY(-50%);
-            animation: blink 0.8s infinite;
+            left: 16px;
+            width: 2px;
+            height: 20px;
+            background: #222;
             pointer-events: none;
+            transform: translateY(-50%);
+            animation: blink .8s infinite;
         }
+
         @keyframes blink {
-            0%, 100% { opacity: 1; }
+            0%,
+            100% { opacity: 1; }
             50% { opacity: 0; }
         }
-        .footer {
-            position: absolute;
-            bottom: 30px;
-            color: #999;
+
+        .wenxin-entry-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wenxin-entry {
+            display: flex;
+            width: fit-content;
+            min-height: 40px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5vh;
+            border-radius: 22px;
+            padding: 0 12px 0 14px;
+            color: #3f4558;
+            background: #f6f7fe;
+            font-size: 16px;
+            line-height: 16px;
+            font-weight: 400;
+            transition: border-color .18s ease, box-shadow .18s ease;
+        }
+        
+        .wenxin-entry img {
+            height: 17px;
+            width: unset;
+            margin-right: 9px;
+        }
+
+        
+        .wenxin-entry:hover {
+            color: #4e6ef2;
+            background: #eff2fe;
+        }
+
+        .wenxin-icon {
+            display: inline-flex;
+            width: 22px;
+            height: 22px;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            border-radius: 7px;
+            color: #fff;
+            background: linear-gradient(135deg, #315efb, #7f57ff);
+            font-weight: 700;
+        }
+
+        .content {
+            display: grid;
+            width: min(100%, 800px);
+            grid-template-columns: minmax(0, 1fr);
+            gap: 22px;
+            margin-top: 3vh;
+        }
+
+        .hot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 13px;
+        }
+
+        .hot-title {
+            width: 55px;
+            height: 14px;
+            vertical-align: text-top;
+        }
+
+        .hot-refresh {
+            border: 0;
+            color: #626675;
+            background: transparent;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .hot-refresh:hover {
+            color: #315efb;
+        }
+
+        .hot-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 44px;
+            row-gap: 12px;
+            list-style: none;
+        }
+
+        .hot-item a {
+            display: grid;
+            min-height: 26px;
+            grid-template-columns: 22px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 8px;
+            color: #222;
+        }
+
+        .hot-index {
+            color: #9195a3;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .hot-item:nth-child(1) .hot-index { color: #fe2d46; }
+        .hot-item:nth-child(2) .hot-index { color: #f60; }
+        .hot-item:nth-child(3) .hot-index { color: #faa90e; }
+
+        .hot-text {
+            overflow: hidden;
+            color: #222;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 16px;
+        }
+
+        .hot-tag {
+            height: 18px;
+            padding: 0 5px;
+            border-radius: 4px;
+            color: #fff;
+            background: #ff3b30;
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        .hot-value {
+            color: #9195a3;
             font-size: 12px;
         }
-        @media (max-width: 600px) {
-            .search-input { width: 65vw; }
-            .logo { width: 200px; height: 96px; }
+
+        .hot-status {
+            min-height: 80px;
+            color: #626675;
+            line-height: 80px;
+            text-align: center;
+        }
+
+        .footer {
+            display: flex;
+            width: 100%;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 12px 20px;
+            color: #bbb;
+            font-size: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer a:hover {
+            color: #626675;
+        }
+
+        @media (max-width: 760px) {
+            .s-top-wrap {
+                height: auto;
+                display: block;
+                padding: 12px 16px 0;
+            }
+
+            .s-top-left-new {
+                display: none;
+            }
+
+            .s-top-left-new,
+            .s-top-right {
+                gap: 16px;
+                overflow-x: auto;
+            }
+
+            .s-top-right {
+                justify-content: flex-end;
+                overflow-x: visible;
+            }
+
+            .s-top-right .weather {
+                margin-right: auto;
+            }
+
+            .s-top-left-new a,
+            .s-top-right a {
+                line-height: 28px;
+            }
+
+            .main {
+                padding-top: 26px;
+            }
+
+            .logo {
+                width: 210px;
+                height: 100px;
+            }
+
+            .search-panel {
+                width: 100%;
+            }
+
+            .search-input {
+                width: calc(100% - 92px);
+                padding-right: 40px;
+            }
+
+            .search-btn {
+                width: 92px;
+                font-size: 16px;
+            }
+
+            .camera-btn {
+                right: 96px;
+            }
+
+            .content {
+                margin-top: 32px;
+            }
+
+            .hot-list {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .hot-item a {
+                grid-template-columns: 22px minmax(0, 1fr) auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="logo"></div>
-    <div class="search-wrapper">
-        <input type="text" class="search-input" id="searchInput" readonly>
-        <span class="cursor" id="cursor"></span>
-        <button class="search-btn" id="searchBtn">百度一下</button>
+    <div class="page">
+        <header class="s-top-wrap">
+            <nav class="s-top-left-new" aria-label="百度频道导航">
+                <a href="https://news.baidu.com/">新闻</a>
+                <a href="https://www.hao123.com/">hao123</a>
+                <a href="https://map.baidu.com/">地图</a>
+                <a href="https://tieba.baidu.com/">贴吧</a>
+                <a href="https://haokan.baidu.com/">视频</a>
+                <a href="https://image.baidu.com/">图片</a>
+                <a href="https://pan.baidu.com/">网盘</a>
+                <a href="https://wenku.baidu.com/">文库</a>
+                <a class="more-link" href="https://www.baidu.com/more/">更多</a>
+            </nav>
+            <nav class="s-top-right" aria-label="百度信息导航">
+                <a class="weather" href="https://www.baidu.com/s?wd=天气">
+                    <span class="weather-dot" aria-hidden="true"></span>
+                    <span>香港 29℃</span>
+                </a>
+                <a href="https://www.baidu.com/s?wd=设置">设置</a>
+                <a class="login-btn" href="https://passport.baidu.com/">登录</a>
+            </nav>
+        </header>
+
+        <main class="main">
+            <a class="logo" href="https://www.baidu.com/" aria-label="百度首页"></a>
+
+            <section class="search-panel" aria-label="百度搜索">
+                <form class="search-wrapper" id="searchForm">
+                    <input class="search-input" id="searchInput" name="wd" type="text" autocomplete="off" aria-label="搜索关键词">
+                    <span class="cursor" id="cursor"></span>
+                    <button class="camera-btn" type="button" aria-label="按图搜索">⌕</button>
+                    <button class="search-btn" id="searchBtn" type="submit">百度一下</button>
+                </form>
+
+                <div class="wenxin-entry-container">
+                    <a class="wenxin-entry" href="https://chat.baidu.com/search?extParams=%7B%22enter_type%22%3A%22home_operate%22%7D&amp;isShowHello=1">
+                        <img src="https://psstatic.cdn.bcebos.com/aife/static/wenxinlogo_1770695621000.png" alt="文心助手logo">
+                        <span>复杂问题就找文心助手，深入思考回答更优 ➡️ </span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="content" aria-label="百度热搜">
+                <div class="hot-board">
+                    <div class="hot-header">
+                        <img class="hot-title" src="https://psstatic.cdn.bcebos.com/basics/aichat/hot_search_x3_1747880381000.png" alt="">
+                        <button class="hot-refresh" id="hotRefresh" type="button">换一换</button>
+                    </div>
+                    <div class="hot-status" id="hotStatus">正在加载热搜...</div>
+                    <ol class="hot-list" id="hotList" hidden></ol>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <a href="https://home.baidu.com/">关于百度</a>
+            <a href="https://ir.baidu.com/">About Baidu</a>
+            <a href="https://e.baidu.com/">广告</a>
+            <a href="https://www.baidu.com/duty/">使用百度前必读</a>
+            <span>© 2026 Baidu</span>
+            <span>京ICP证030173号</span>
+        </footer>
     </div>
-    <div class="footer">© 2026 Baidu 京ICP证030173号</div>
-<script>
-    // ========== 配置区域：修改这里的关键词 ==========
-    const KEYWORD = decodeURIComponent(location.search.split('wd=')[1]);
-    // =============================================
 
-    const input = document.getElementById('searchInput');
-    const btn = document.getElementById('searchBtn');
-    const cursor = document.getElementById('cursor');
+    <script>
+        const HOT_API = "https://v2.xxapi.cn/api/baiduhot";
+        const FALLBACK_HOT = [
+            { index: 1, title: "向第二个百年奋斗目标迈进", hot: "790万", url: "https://www.baidu.com/s?wd=%E5%90%91%E7%AC%AC%E4%BA%8C%E4%B8%AA%E7%99%BE%E5%B9%B4%E5%A5%8B%E6%96%97%E7%9B%AE%E6%A0%87%E8%BF%88%E8%BF%9B" },
+            { index: 2, title: "复杂问题就找文心助手", hot: "628万", url: "https://chat.baidu.com/search?extParams=%7B%22enter_type%22%3A%22home_operate%22%7D&isShowHello=1" },
+            { index: 3, title: "暑期出游热度持续攀升", hot: "512万", url: "https://www.baidu.com/s?wd=%E6%9A%91%E6%9C%9F%E5%87%BA%E6%B8%B8" },
+            { index: 4, title: "高温天气如何科学防暑", hot: "483万", url: "https://www.baidu.com/s?wd=%E9%AB%98%E6%B8%A9%E9%98%B2%E6%9A%91" },
+            { index: 5, title: "AI办公效率工具受关注", hot: "426万", url: "https://www.baidu.com/s?wd=AI%E5%8A%9E%E5%85%AC" },
+            { index: 6, title: "全国多地优化文旅服务", hot: "398万", url: "https://www.baidu.com/s?wd=%E6%96%87%E6%97%85%E6%9C%8D%E5%8A%A1" },
+            { index: 7, title: "毕业季租房指南", hot: "356万", url: "https://www.baidu.com/s?wd=%E6%AF%95%E4%B8%9A%E5%AD%A3%E7%A7%9F%E6%88%BF" },
+            { index: 8, title: "新能源汽车充电体验升级", hot: "321万", url: "https://www.baidu.com/s?wd=%E6%96%B0%E8%83%BD%E6%BA%90%E6%B1%BD%E8%BD%A6%E5%85%85%E7%94%B5" },
+            { index: 9, title: "多所高校发布招生安排", hot: "297万", url: "https://www.baidu.com/s?wd=%E9%AB%98%E6%A0%A1%E6%8B%9B%E7%94%9F" },
+            { index: 10, title: "城市更新带来新空间", hot: "260万", url: "https://www.baidu.com/s?wd=%E5%9F%8E%E5%B8%82%E6%9B%B4%E6%96%B0" }
+        ];
 
-    // 更新光标位置，使其始终跟在文字后面
-    function updateCursorPosition() {
-        // 创建临时元素测量文字宽度
-        const temp = document.createElement('span');
-        temp.style.cssText = `
-            visibility: hidden; position: absolute; white-space: pre;
-            font: ${window.getComputedStyle(input).font};
-            padding-left: 15px;
-        `;
-        temp.textContent = input.value || '';
-        document.body.appendChild(temp);
-        const textWidth = temp.offsetWidth;
-        cursor.style.left = `${textWidth}px`;
-        document.body.removeChild(temp);
-    }
+        const input = document.getElementById("searchInput");
+        const btn = document.getElementById("searchBtn");
+        const cursor = document.getElementById("cursor");
+        const form = document.getElementById("searchForm");
+        const hotList = document.getElementById("hotList");
+        const hotStatus = document.getElementById("hotStatus");
+        const hotRefresh = document.getElementById("hotRefresh");
 
-    // 打字机效果：逐字输入
-    async function typeWriter(text, speed = 120) {
-        input.focus();
-        for (let i = 0; i < text.length; i++) {
-            input.value += text[i];
-            updateCursorPosition();
-            // 模拟人类打字的不均匀节奏
-            const randomDelay = speed + Math.random() * 80 - 40;
-            await new Promise(r => setTimeout(r, randomDelay));
+        function getQueryKeyword() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("wd") || "";
         }
-    }
 
-    // 模拟点击搜索按钮
-    async function simulateClick() {
-        await new Promise(r => setTimeout(r, 400)); // 输入完成后短暂停顿
-        btn.classList.add('clicking');
-        await new Promise(r => setTimeout(r, 200));
-        btn.classList.remove('clicking');
-        
-        // 隐藏光标
-        cursor.style.display = 'none';
-        
-        // 跳转到真实百度搜索结果页
-        await new Promise(r => setTimeout(r, 300));
-        window.location.href = `https://www.baidu.com/s?wd=${encodeURIComponent(KEYWORD)}`;
-    }
+        function goSearch(keyword) {
+            const value = keyword.trim();
+            if (!value) {
+                input.focus();
+                return;
+            }
+            window.location.href = `https://www.baidu.com/s?wd=${encodeURIComponent(value)}`;
+        }
 
-    // 页面加载后自动开始表演
-    window.addEventListener('load', async () => {
-        console.log(KEYWORD);
-        await new Promise(r => setTimeout(r, 800)); // 页面打开后稍作等待
-        await typeWriter(KEYWORD);
-        await simulateClick();
-    });
+        function updateCursorPosition() {
+            const temp = document.createElement("span");
+            temp.style.cssText = `
+                visibility: hidden;
+                position: absolute;
+                white-space: pre;
+                font: ${window.getComputedStyle(input).font};
+            `;
+            temp.textContent = input.value || "";
+            document.body.appendChild(temp);
+            const textWidth = temp.offsetWidth;
+            cursor.style.left = `${Math.min(textWidth + 16, input.clientWidth - 18)}px`;
+            document.body.removeChild(temp);
+        }
 
-    // 窗口大小变化时重新计算光标位置
-    window.addEventListener('resize', updateCursorPosition);
-</script>
+        async function typeWriter(text, speed = 110) {
+            cursor.style.display = "block";
+            input.focus();
+            input.value = "";
+            for (let i = 0; i < text.length; i++) {
+                input.value += text[i];
+                updateCursorPosition();
+                const delay = speed + Math.random() * 70 - 30;
+                await new Promise(resolve => setTimeout(resolve, delay));
+            }
+        }
+
+        async function simulateClick(keyword) {
+            await new Promise(resolve => setTimeout(resolve, 350));
+            btn.classList.add("clicking");
+            await new Promise(resolve => setTimeout(resolve, 180));
+            btn.classList.remove("clicking");
+            cursor.style.display = "none";
+            await new Promise(resolve => setTimeout(resolve, 260));
+            goSearch(keyword);
+        }
+
+        function normalizeHotItems(payload) {
+            if (!payload || payload.code !== 200 || !Array.isArray(payload.data)) {
+                return FALLBACK_HOT;
+            }
+            return payload.data.slice(0, 10).map((item, index) => ({
+                index: item.index || index + 1,
+                title: item.title || item.desc || "百度热搜",
+                hot: item.hot || "",
+                url: item.url || `https://www.baidu.com/s?wd=${encodeURIComponent(item.title || "")}`
+            }));
+        }
+
+        function renderHot(items) {
+            hotList.innerHTML = "";
+            items.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.className = "hot-item";
+
+                const link = document.createElement("a");
+                link.href = item.url;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+
+                const num = document.createElement("span");
+                num.className = "hot-index";
+                num.textContent = item.index;
+
+                const title = document.createElement("span");
+                title.className = "hot-text";
+                title.textContent = item.title;
+
+                const meta = document.createElement("span");
+                meta.className = index < 3 ? "hot-tag" : "hot-value";
+                meta.textContent = index < 3 ? "热" : item.hot;
+
+                link.append(num, title, meta);
+                li.appendChild(link);
+                hotList.appendChild(li);
+            });
+
+            hotStatus.hidden = true;
+            hotList.hidden = false;
+        }
+
+        async function loadHot() {
+            hotStatus.hidden = false;
+            hotList.hidden = true;
+            hotStatus.textContent = "正在加载热搜...";
+            try {
+                const response = await fetch(HOT_API, { cache: "no-store" });
+                const payload = await response.json();
+                renderHot(normalizeHotItems(payload));
+            } catch (error) {
+                hotStatus.textContent = "热搜接口暂不可用，已展示本地示例。";
+                renderHot(FALLBACK_HOT);
+            }
+        }
+
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+            goSearch(input.value);
+        });
+
+        hotRefresh.addEventListener("click", loadHot);
+        window.addEventListener("resize", updateCursorPosition);
+
+        window.addEventListener("load", async () => {
+            await loadHot();
+            const keyword = getQueryKeyword();
+            if (keyword) {
+                await new Promise(resolve => setTimeout(resolve, 500));
+                await typeWriter(keyword);
+                await simulateClick(keyword);
+            } else {
+                input.focus();
+            }
+        });
+    </script>
 </body>
 </html>
