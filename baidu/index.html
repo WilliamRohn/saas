@@ -152,8 +152,15 @@
             border-radius: 10px 0 0 10px;
             outline: 0;
             color: #222;
+            font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif !important;
             font-size: 16px;
-            line-height: 44px;
+            line-height: normal;
+            letter-spacing: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            -webkit-appearance: none;
+            appearance: none;
+            caret-color: #222;
             transition: border-color .18s ease;
         }
 
@@ -205,7 +212,7 @@
             display: none;
             position: absolute;
             top: 50%;
-            left: 16px;
+            left: 22px;
             width: 2px;
             height: 20px;
             background: #222;
@@ -551,28 +558,57 @@
             window.location.href = `https://www.baidu.com/s?wd=${encodeURIComponent(value)}`;
         }
 
+        let isComposing = false;
+        const textMeasure = document.createElement("span");
+        textMeasure.style.cssText = "visibility:hidden;position:absolute;left:-9999px;top:-9999px;white-space:pre;";
+        document.body.appendChild(textMeasure);
+
+        function getInputMetrics() {
+            const style = window.getComputedStyle(input);
+            textMeasure.style.font = style.font;
+            textMeasure.style.letterSpacing = style.letterSpacing;
+            return {
+                borderLeft: parseFloat(style.borderLeftWidth) || 0,
+                paddingLeft: parseFloat(style.paddingLeft) || 0,
+                paddingRight: parseFloat(style.paddingRight) || 0
+            };
+        }
+
+        function getTextWidth(text) {
+            textMeasure.textContent = text || "";
+            return textMeasure.getBoundingClientRect().width;
+        }
+
+        function syncInputViewport(forceEnd = false) {
+            requestAnimationFrame(() => {
+                if (forceEnd || document.activeElement === input) {
+                    input.scrollLeft = input.scrollWidth;
+                }
+                updateCursorPosition();
+            });
+        }
+
         function updateCursorPosition() {
-            const temp = document.createElement("span");
-            temp.style.cssText = `
-                visibility: hidden;
-                position: absolute;
-                white-space: pre;
-                font: ${window.getComputedStyle(input).font};
-            `;
-            temp.textContent = input.value || "";
-            document.body.appendChild(temp);
-            const textWidth = temp.offsetWidth;
-            cursor.style.left = `${Math.min(textWidth + 16, input.clientWidth - 18)}px`;
-            document.body.removeChild(temp);
+            const metrics = getInputMetrics();
+            const caretIndex = typeof input.selectionStart === "number" ? input.selectionStart : input.value.length;
+            const beforeCaret = input.value.slice(0, caretIndex);
+            const textWidth = getTextWidth(beforeCaret);
+            const minLeft = metrics.borderLeft + metrics.paddingLeft;
+            const maxLeft = input.clientWidth - metrics.paddingRight - 4;
+            const left = metrics.borderLeft + metrics.paddingLeft + textWidth - input.scrollLeft;
+            cursor.style.left = `${Math.max(minLeft, Math.min(left, maxLeft))}px`;
         }
 
         async function typeWriter(text, speed = 110) {
             cursor.style.display = "block";
             input.focus();
             input.value = "";
+            input.setSelectionRange(0, 0);
+            syncInputViewport(true);
             for (let i = 0; i < text.length; i++) {
                 input.value += text[i];
-                updateCursorPosition();
+                input.setSelectionRange(input.value.length, input.value.length);
+                syncInputViewport(true);
                 const delay = speed + Math.random() * 70 - 30;
                 await new Promise(resolve => setTimeout(resolve, delay));
             }
@@ -646,13 +682,32 @@
             }
         }
 
+        input.addEventListener("compositionstart", () => {
+            isComposing = true;
+        });
+
+        input.addEventListener("compositionend", () => {
+            isComposing = false;
+            syncInputViewport(true);
+        });
+
+        input.addEventListener("input", () => {
+            if (!isComposing) syncInputViewport(true);
+        });
+
+        input.addEventListener("keyup", () => syncInputViewport());
+        input.addEventListener("click", () => syncInputViewport());
+        input.addEventListener("focus", () => syncInputViewport(true));
+        input.addEventListener("scroll", updateCursorPosition);
+
         form.addEventListener("submit", event => {
             event.preventDefault();
+            if (isComposing || event.isComposing) return;
             goSearch(input.value);
         });
 
         hotRefresh.addEventListener("click", loadHot);
-        window.addEventListener("resize", updateCursorPosition);
+        window.addEventListener("resize", () => syncInputViewport());
 
         window.addEventListener("load", async () => {
             await loadHot();
@@ -668,3 +723,4 @@
     </script>
 </body>
 </html>
+
