@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度一下，你就知道</title>
+    <!-- 使用百度官方favicon -->
+    <link rel="icon" href="https://www.baidu.com/favicon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, "Microsoft YaHei", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #fff;
+        }
+        .logo {
+            width: 270px;
+            height: 129px;
+            margin-bottom: 30px;
+            /* 使用百度官方Logo SVG */
+            background: url('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png') no-repeat center;
+            background-size: contain;
+        }
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 25vh;
+        }
+        .search-input {
+            width: 500px;
+            height: 44px;
+            padding: 0 15px;
+            font-size: 16px;
+            border: 2px solid #c4c7ce;
+            border-right: none;
+            border-radius: 10px 0 0 10px;
+            outline: none;
+            color: #222;
+            transition: border-color 0.3s;
+        }
+        .search-input:focus {
+            border-color: #4e6ef2;
+        }
+        .search-btn {
+            width: 108px;
+            height: 44px;
+            background: #4e6ef2;
+            color: #fff;
+            font-size: 17px;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: background 0.3s, transform 0.1s;
+        }
+        .search-btn:hover { background: #4662d9; }
+        .search-btn.clicking {
+            transform: scale(0.95);
+            background: #3a54c4;
+        }
+        /* 光标闪烁动画 */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 18px;
+            background: #333;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: blink 0.8s infinite;
+            pointer-events: none;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            color: #999;
+            font-size: 12px;
+        }
+        @media (max-width: 600px) {
+            .search-input { width: 65vw; }
+            .logo { width: 200px; height: 96px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo"></div>
+    <div class="search-wrapper">
+        <input type="text" class="search-input" id="searchInput" readonly>
+        <span class="cursor" id="cursor"></span>
+        <button class="search-btn" id="searchBtn">百度一下</button>
+    </div>
+    <div class="footer">© 2026 Baidu 京ICP证030173号</div>
+<script>
+    // ========== 配置区域：修改这里的关键词 ==========
+    const KEYWORD = decodeURIComponent(location.search.split('wd=')[1]);
+    // =============================================
+
+    const input = document.getElementById('searchInput');
+    const btn = document.getElementById('searchBtn');
+    const cursor = document.getElementById('cursor');
+
+    // 更新光标位置，使其始终跟在文字后面
+    function updateCursorPosition() {
+        // 创建临时元素测量文字宽度
+        const temp = document.createElement('span');
+        temp.style.cssText = `
+            visibility: hidden; position: absolute; white-space: pre;
+            font: ${window.getComputedStyle(input).font};
+            padding-left: 15px;
+        `;
+        temp.textContent = input.value || '';
+        document.body.appendChild(temp);
+        const textWidth = temp.offsetWidth;
+        cursor.style.left = `${textWidth}px`;
+        document.body.removeChild(temp);
+    }
+
+    // 打字机效果：逐字输入
+    async function typeWriter(text, speed = 120) {
+        input.focus();
+        for (let i = 0; i < text.length; i++) {
+            input.value += text[i];
+            updateCursorPosition();
+            // 模拟人类打字的不均匀节奏
+            const randomDelay = speed + Math.random() * 80 - 40;
+            await new Promise(r => setTimeout(r, randomDelay));
+        }
+    }
+
+    // 模拟点击搜索按钮
+    async function simulateClick() {
+        await new Promise(r => setTimeout(r, 400)); // 输入完成后短暂停顿
+        btn.classList.add('clicking');
+        await new Promise(r => setTimeout(r, 200));
+        btn.classList.remove('clicking');
+        
+        // 隐藏光标
+        cursor.style.display = 'none';
+        
+        // 跳转到真实百度搜索结果页
+        await new Promise(r => setTimeout(r, 300));
+        window.location.href = `https://www.baidu.com/s?wd=${encodeURIComponent(KEYWORD)}`;
+    }
+
+    // 页面加载后自动开始表演
+    window.addEventListener('load', async () => {
+        console.log(KEYWORD);
+        await new Promise(r => setTimeout(r, 800)); // 页面打开后稍作等待
+        await typeWriter(KEYWORD);
+        await simulateClick();
+    });
+
+    // 窗口大小变化时重新计算光标位置
+    window.addEventListener('resize', updateCursorPosition);
+</script>
+</body>
+</html>

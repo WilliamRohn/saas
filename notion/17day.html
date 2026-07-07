@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026年国庆前后云南17天旅游行程规划</title>
+  <style>
+    :root {
+      --bg: #f6f3ec;
+      --card: #ffffff;
+      --text: #2f2a25;
+      --muted: #6f655c;
+      --primary: #9a5b2f;
+      --primary-dark: #743f1d;
+      --border: #e4d9cc;
+      --accent: #eecf9b;
+      --green: #5f7a57;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #7b3f1d, #c88a45);
+      color: white;
+      padding: 56px 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 46px);
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 900px;
+      font-size: 17px;
+      opacity: 0.94;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    nav a {
+      display: inline-block;
+      margin-right: 18px;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+
+    section {
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      padding-left: 12px;
+      border-left: 6px solid var(--primary);
+      font-size: 26px;
+    }
+
+    h3 {
+      color: var(--primary-dark);
+      margin-top: 26px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 24px rgba(65, 42, 24, 0.06);
+    }
+
+    .notice {
+      background: #fff8e9;
+      border-left: 6px solid var(--accent);
+      padding: 18px 20px;
+      border-radius: 14px;
+      color: #4b3826;
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .route div {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(65, 42, 24, 0.05);
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f0e2cf;
+      color: #4a2a17;
+      font-weight: 700;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .budget-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .budget-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .budget-item strong {
+      display: block;
+      color: var(--primary-dark);
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .hotel-card, .activity-card {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .photo {
+      width: 180px;
+      height: 112px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #eee;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 6px 18px;
+      margin: 12px 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta li strong { color: var(--text); }
+
+    .url {
+      display: block;
+      word-break: break-all;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    a {
+      color: var(--primary-dark);
+    }
+
+    .tag {
+      display: inline-block;
+      background: #edf2e8;
+      color: var(--green);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 13px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 18px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #fffaf2;
+    }
+
+    @media (max-width: 720px) {
+      .hotel-card, .activity-card {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        width: 100%;
+        height: 190px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th, td {
+        padding: 10px;
+      }
+    }
+
+    @media print {
+      nav { display: none; }
+      body { background: white; }
+      .card, table { box-shadow: none; }
+      a { color: #000; text-decoration: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>2026年国庆前后云南17天旅游行程规划</h1>
+    <p>时间：2026年9月21日—10月7日｜路线：昆明—大理—丽江—香格里拉—德钦/梅里雪山｜预算：人民币15000以内</p>
+  </header>
+
+  <nav>
+    <a href="#assumptions">规划假设</a>
+    <a href="#route">推荐路线</a>
+    <a href="#budget">预算框架</a>
+    <a href="#itinerary">每日行程</a>
+    <a href="#hotels">住宿选项</a>
+    <a href="#activities">活动选项</a>
+    <a href="#tips">执行提醒</a>
+  </nav>
+
+  <main>
+    <section id="assumptions">
+      <h2>规划假设</h2>
+      <div class="notice">
+        <p>
+          本行程按<strong>2人出行、从昆明进出、以高铁/城际动车/大巴为主、不自驾、不含往返你所在城市至云南的大交通</strong>来规划。
+          住宿搜索按Expedia默认返回的<strong>2位成人</strong>结果整理。你可以调整出发城市、人数、住宿档次后，再重新生成更精确版本。
+        </p>
+        <p>
+          Expedia返回的住宿和活动价格均为<strong>USD</strong>，其中<strong>total price已含税费</strong>。
+          行程总预算部分按人民币15000以内控制。
+        </p>
+      </div>
+    </section>
+
+    <section id="route">
+      <h2>推荐路线：滇西北秋分慢游17天</h2>
+      <div class="route">
+        <div>昆明 2晚</div>
+        <div>大理 3晚</div>
+        <div>丽江 4晚</div>
+        <div>香格里拉 4晚</div>
+        <div>梅里/德钦 2晚</div>
+        <div>丽江/昆明返程 2晚</div>
+      </div>
+      <div class="card">
+        <p>
+          选择这条线的原因：9月下旬到10月上旬，滇西北进入秋季，昆明、大理、丽江整体舒适，
+          香格里拉早晚偏冷但草甸、藏文化、雪山视野进入好季节。
+          9月25日至27日是2026年中秋假期，10月1日至7日是国庆假期，
+          热门大理/丽江尽量安排在国庆前，国庆段转入香格里拉、德钦，以降低拥挤感。
+        </p>
+        <p>
+          参考链接：
+          <a href="https://big5.www.gov.cn/gate/big5/www.gov.cn/gongbao/2025/issue_12406/202511/content_7048922.html" target="_blank" rel="noopener">2026年放假安排</a>；
+          <a href="https://wanderlog.com/zh/weather/534/9/%E5%A4%A7%E7%90%86%E5%B8%82%E4%B9%9D%E6%9C%88%E7%9A%84%E5%A4%A9%E6%B0%94" target="_blank" rel="noopener">大理9月天气参考</a>。
+        </p>
+      </div>
+    </section>
+
+    <section id="budget">
+      <h2>预算框架：2人合计控制在15000元以内</h2>
+      <div class="budget-grid">
+        <div class="budget-item"><strong>住宿</strong>4500–6000元</div>
+        <div class="budget-item"><strong>云南内交通</strong>2500–3500元</div>
+        <div class="budget-item"><strong>餐饮</strong>3500–4200元</div>
+        <div class="budget-item"><strong>门票/索道/体验</strong>2500–3500元</div>
+        <div class="budget-item"><strong>机动金</strong>1000元</div>
+      </div>
+      <div class="card">
+        <p>
+          关键省钱策略：热门景区尽量早出发；丽江和香格里拉不天天包车；
+          梅里雪山只住2晚；10月1日至7日住宿提前锁价；
+          玉龙雪山、普达措、梅里等按天气预留替换日。
+        </p>
+      </div>
+    </section>
+
+    <section id="itinerary">
+      <h2>17天标准化早中晚计划</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>上午</th>
+            <th>中午/下午</th>
+            <th>晚上</th>
+            <th>交通</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>9/21 D1 昆明</td>
+            <td>抵达昆明，入住市中心/南屏街附近</td>
+            <td>翠湖公园、云南大学周边慢走，适应高原日照</td>
+            <td>南屏街/金马碧鸡坊，吃汽锅鸡、过桥米线</td>
+            <td>机场地铁/打车</td>
+          </tr>
+          <tr>
+            <td>9/22 D2 昆明</td>
+            <td>08:00出发石林，游览喀斯特地貌，约3–4小时</td>
+            <td>返回市区或顺路滇池海埂公园</td>
+            <td>早点休息，为第二天动车做准备</td>
+            <td>包车/一日团/动车+接驳</td>
+          </tr>
+          <tr>
+            <td>9/23 D3 昆明→大理</td>
+            <td>早班动车到大理，约2–3小时</td>
+            <td>入住后洱海生态廊道骑行，龙龛码头看海</td>
+            <td>大理古城夜游，人民路/洋人街</td>
+            <td>动车+公交/打车</td>
+          </tr>
+          <tr>
+            <td>9/24 D4 大理</td>
+            <td>喜洲古镇、严家大院/稻田、扎染体验</td>
+            <td>周城/海舌方向慢游，避开双廊高峰</td>
+            <td>古城小酒馆或白族三道茶体验</td>
+            <td>网约车/包半日车</td>
+          </tr>
+          <tr>
+            <td>9/25 D5 大理，中秋假期第1天</td>
+            <td>苍山感通索道或寂照庵，上午完成核心游览</td>
+            <td>崇圣寺三塔外观/入园二选一</td>
+            <td>中秋夜建议在洱海边赏月，避免拥挤夜市</td>
+            <td>打车/公交</td>
+          </tr>
+          <tr>
+            <td>9/26 D6 大理→丽江</td>
+            <td>上午动车/火车到丽江</td>
+            <td>入住后逛束河古镇，比大研更松弛</td>
+            <td>束河晚餐，适应海拔</td>
+            <td>动车/火车</td>
+          </tr>
+          <tr>
+            <td>9/27 D7 丽江</td>
+            <td>白沙古镇、白沙壁画、咖啡馆看玉龙雪山</td>
+            <td>玉湖村/龙女湖轻徒步</td>
+            <td>回丽江古城看夜景，不建议太晚</td>
+            <td>打车/公交</td>
+          </tr>
+          <tr>
+            <td>9/28 D8 玉龙雪山</td>
+            <td>06:30出发玉龙雪山，冰川公园/云杉坪按体力选</td>
+            <td>蓝月谷，下午回城休息</td>
+            <td>吃腊排骨火锅，补充热量</td>
+            <td>景区车/一日团</td>
+          </tr>
+          <tr>
+            <td>9/29 D9 丽江人文日</td>
+            <td>木府、黑龙潭，了解纳西文化</td>
+            <td>大研古城慢逛，买补给、防晒、氧气按需</td>
+            <td>早睡，准备进香格里拉</td>
+            <td>步行/公交</td>
+          </tr>
+          <tr>
+            <td>9/30 D10 丽江→香格里拉</td>
+            <td>走虎跳峡方向，上午看峡谷</td>
+            <td>下午到香格里拉，入住独克宗附近</td>
+            <td>独克宗古城、转经筒，适应海拔</td>
+            <td>大巴/拼车</td>
+          </tr>
+          <tr>
+            <td>10/1 D11 香格里拉，国庆第1天</td>
+            <td>松赞林寺，建议08:00前到</td>
+            <td>纳帕海环湖，草甸、牛羊、秋色</td>
+            <td>藏餐：牦牛肉火锅/酥油茶</td>
+            <td>打车/包半日车</td>
+          </tr>
+          <tr>
+            <td>10/2 D12 香格里拉</td>
+            <td>普达措国家公园，森林湖泊慢走</td>
+            <td>下午回城休息，避免高反</td>
+            <td>独克宗轻逛，不安排剧烈活动</td>
+            <td>景区车/包车</td>
+          </tr>
+          <tr>
+            <td>10/3 D13 香格里拉周边</td>
+            <td>上午休整或去小中甸花海/牧场</td>
+            <td>下午手作唐卡/藏香/民族文化体验</td>
+            <td>早点休息，为梅里雪山路程蓄力</td>
+            <td>打车/体验课</td>
+          </tr>
+          <tr>
+            <td>10/4 D14 香格里拉→德钦/飞来寺</td>
+            <td>08:00出发，经金沙江大拐弯/白马雪山方向</td>
+            <td>下午到飞来寺观景台，等日落</td>
+            <td>住飞来寺/德钦，早睡等日照金山</td>
+            <td>包车/拼车</td>
+          </tr>
+          <tr>
+            <td>10/5 D15 梅里雪山</td>
+            <td>06:30看日照金山；天气好则明永冰川/雾浓顶二选一</td>
+            <td>午后返回飞来寺休息，避免长时间高海拔活动</td>
+            <td>观星/藏式晚餐</td>
+            <td>包车</td>
+          </tr>
+          <tr>
+            <td>10/6 D16 德钦→香格里拉/丽江</td>
+            <td>返程，建议中途多停靠休息</td>
+            <td>抵达香格里拉后换乘至丽江，或住香格里拉缓冲</td>
+            <td>若住丽江，简单夜宵；若住香格里拉，早休息</td>
+            <td>包车+动车/大巴</td>
+          </tr>
+          <tr>
+            <td>10/7 D17 返程</td>
+            <td>丽江/昆明返程</td>
+            <td>预留误车、天气、航班延误缓冲</td>
+            <td>行程结束</td>
+            <td>动车/航班</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="hotels">
+      <h2>Expedia住宿选项</h2>
+
+      <h3>昆明：2026/9/21–9/23，2晚，2位成人</h3>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/108000000/107330000/107325400/107325390/25b277a2_y.jpg" alt="Nostalgia S Hotel(Kunming Dongfeng Square)" />
+        <div>
+          <h3>Nostalgia S Hotel(Kunming Dongfeng Square)</h3>
+          <p>位于昆明市中心，步行可到南城清真寺和南屏步行街，距离东塔、翠湖公园也较近。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>107325390</li>
+            <li><strong>房型面积：</strong>237 sq ft</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>3</li>
+            <li><strong>星级：</strong>4.0</li>
+            <li><strong>住客评分：</strong>9.0，16条点评</li>
+            <li><strong>平均每晚：</strong>USD 29.98</li>
+            <li><strong>含税费平均每晚：</strong>USD 33.11</li>
+            <li><strong>总价：</strong>USD 69.92，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6177560&amp;selected=107325390&amp;startDate=2026-09-21&amp;endDate=2026-09-23&amp;adults=2&amp;chid=4c5e48a3-9c7a-4a10-8729-c0601f541b75&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=403782792&amp;mpa=59.96&amp;mpb=9.96&amp;mpd=USD&amp;mpe=1783393980&amp;mpm=24&amp;mpn=327114324&amp;locale=en_US&amp;mpq=33.11&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6177560&amp;selected=107325390&amp;startDate=2026-09-21&amp;endDate=2026-09-23&amp;adults=2&amp;chid=4c5e48a3-9c7a-4a10-8729-c0601f541b75&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=403782792&amp;mpa=59.96&amp;mpb=9.96&amp;mpd=USD&amp;mpe=1783393980&amp;mpm=24&amp;mpn=327114324&amp;locale=en_US&amp;mpq=33.11&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/122000000/121020000/121012500/121012474/a2e12baa_y.jpg" alt="Holiday Inn Express Kunming Changshui Airport by IHG" />
+        <div>
+          <h3>Holiday Inn Express Kunming Changshui Airport by IHG</h3>
+          <p>位于官渡，适合晚到或次日早出发，距离昆明主城区景点较远。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>121012474</li>
+            <li><strong>房型面积：</strong>344 sq ft</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>2</li>
+            <li><strong>星级：</strong>4.0</li>
+            <li><strong>住客评分：</strong>9.0，7条点评</li>
+            <li><strong>平均每晚：</strong>USD 43.27</li>
+            <li><strong>含税费平均每晚：</strong>USD 48.04</li>
+            <li><strong>总价：</strong>USD 100.90，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6177560&amp;selected=121012474&amp;startDate=2026-09-21&amp;endDate=2026-09-23&amp;adults=2&amp;chid=4c5e48a3-9c7a-4a10-8729-c0601f541b75&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=404763385&amp;mpa=86.54&amp;mpb=14.36&amp;mpd=USD&amp;mpe=1783393980&amp;mpm=24&amp;mpn=327432430&amp;locale=en_US&amp;mpq=48.04&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6177560&amp;selected=121012474&amp;startDate=2026-09-21&amp;endDate=2026-09-23&amp;adults=2&amp;chid=4c5e48a3-9c7a-4a10-8729-c0601f541b75&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=404763385&amp;mpa=86.54&amp;mpb=14.36&amp;mpd=USD&amp;mpe=1783393980&amp;mpm=24&amp;mpn=327432430&amp;locale=en_US&amp;mpq=48.04&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/129000000/128910000/128900200/128900174/0f30dcc4_y.jpg" alt="Yishang Hotel Kunming Changshui Airport" />
+        <div>
+          <h3>Yishang Hotel Kunming Changshui Airport</h3>
+          <p>位于官渡，属于Hostel/Backpacker accommodation，适合作为机场过渡型住宿。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>128900174</li>
+            <li><strong>房型面积：</strong>25 sq ft</li>
+            <li><strong>类型：</strong>Hostel/Backpacker accommodation</li>
+            <li><strong>最大入住：</strong>3</li>
+            <li><strong>星级：</strong>2.0</li>
+            <li><strong>住客评分：</strong>10.0，1条点评</li>
+            <li><strong>平均每晚：</strong>USD 19.89</li>
+            <li><strong>含税费平均每晚：</strong>USD 22.17</li>
+            <li><strong>总价：</strong>USD 46.38，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6177560&amp;selected=128900174&amp;startDate=2026-09-21&amp;endDate=2026-09-23&amp;adults=2&amp;chid=4c5e48a3-9c7a-4a10-8729-c0601f541b75&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=409325475&amp;mpa=39.78&amp;mpb=6.60&amp;mpd=USD&amp;mpe=1783393980&amp;mpm=24&amp;mpn=328558633&amp;locale=en_US&amp;mpq=22.17&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6177560&amp;selected=128900174&amp;startDate=2026-09-21&amp;endDate=2026-09-23&amp;adults=2&amp;chid=4c5e48a3-9c7a-4a10-8729-c0601f541b75&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=409325475&amp;mpa=39.78&amp;mpb=6.60&amp;mpd=USD&amp;mpe=1783393980&amp;mpm=24&amp;mpn=328558633&amp;locale=en_US&amp;mpq=22.17&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <h3>大理：2026/9/23–9/26，3晚，2位成人</h3>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/97000000/97000000/96999400/96999337/c793916e_y.jpg" alt="Hawthorn by Wyndham Dali Erhai Park" />
+        <div>
+          <h3>Hawthorn by Wyndham Dali Erhai Park</h3>
+          <p>位于下关，距离洱海、大理博物馆和大理国际会议中心较近，离大理站步行约24分钟。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>96999337</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>2</li>
+            <li><strong>星级：</strong>2.5</li>
+            <li><strong>住客评分：</strong>9.4，9条点评</li>
+            <li><strong>平均每晚：</strong>USD 45.19</li>
+            <li><strong>含税费平均每晚：</strong>USD 50.16</li>
+            <li><strong>总价：</strong>USD 158.07，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6094792&amp;selected=96999337&amp;startDate=2026-09-23&amp;endDate=2026-09-26&amp;adults=2&amp;chid=85a0e62c-b43b-48b1-a5a1-20cedd90d80c&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=392009445&amp;mpa=135.57&amp;mpb=22.50&amp;mpd=USD&amp;mpe=1783393988&amp;mpm=24&amp;mpn=322878689&amp;locale=en_US&amp;mpq=50.16&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6094792&amp;selected=96999337&amp;startDate=2026-09-23&amp;endDate=2026-09-26&amp;adults=2&amp;chid=85a0e62c-b43b-48b1-a5a1-20cedd90d80c&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=392009445&amp;mpa=135.57&amp;mpb=22.50&amp;mpd=USD&amp;mpe=1783393988&amp;mpm=24&amp;mpn=322878689&amp;locale=en_US&amp;mpq=50.16&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/17000000/16020000/16011100/16011006/8e370a3f_y.jpg" alt="China Old Story Inns Dali Elite Garden" />
+        <div>
+          <h3>China Old Story Inns Dali Elite Garden</h3>
+          <p>位于大理，步行可到南门和大理文献路，也靠近玉洱公园、大理大学。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>16011006</li>
+            <li><strong>房型面积：</strong>215 sq ft</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>2</li>
+            <li><strong>星级：</strong>3.5</li>
+            <li><strong>住客评分：</strong>9.0，17条点评</li>
+            <li><strong>平均每晚：</strong>USD 20.55</li>
+            <li><strong>含税费平均每晚：</strong>USD 20.83</li>
+            <li><strong>总价：</strong>USD 65.34，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6094792&amp;selected=16011006&amp;startDate=2026-09-23&amp;endDate=2026-09-26&amp;adults=2&amp;chid=85a0e62c-b43b-48b1-a5a1-20cedd90d80c&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=399566502&amp;mpa=61.65&amp;mpb=3.69&amp;mpd=USD&amp;mpe=1783393988&amp;mpm=24&amp;mpn=325892373&amp;locale=en_US&amp;mpq=20.83&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6094792&amp;selected=16011006&amp;startDate=2026-09-23&amp;endDate=2026-09-26&amp;adults=2&amp;chid=85a0e62c-b43b-48b1-a5a1-20cedd90d80c&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=399566502&amp;mpa=61.65&amp;mpb=3.69&amp;mpd=USD&amp;mpe=1783393988&amp;mpm=24&amp;mpn=325892373&amp;locale=en_US&amp;mpq=20.83&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <h3>丽江：2026/9/26–9/30，4晚，2位成人</h3>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/110000000/109730000/109724200/109724108/ec515885_y.jpg" alt="yuanxiangwenyuan" />
+        <div>
+          <h3>yuanxiangwenyuan</h3>
+          <p>位于古城区，距离丽江古城、万古楼、木府等较近。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>109724108</li>
+            <li><strong>类型：</strong>Bed&amp;breakfast</li>
+            <li><strong>最大入住：</strong>2</li>
+            <li><strong>星级：</strong>4.0</li>
+            <li><strong>住客评分：</strong>10.0，1条点评</li>
+            <li><strong>平均每晚：</strong>USD 27.42</li>
+            <li><strong>含税费平均每晚：</strong>USD 30.43</li>
+            <li><strong>总价：</strong>USD 127.88，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6047448&amp;selected=109724108&amp;startDate=2026-09-26&amp;endDate=2026-09-30&amp;adults=2&amp;chid=9cbb8923-937c-45cc-8a6e-0861586d4f62&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=398295155&amp;mpa=109.68&amp;mpb=18.20&amp;mpd=USD&amp;mpe=1783393995&amp;mpm=24&amp;mpn=325511133&amp;locale=en_US&amp;mpq=30.43&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6047448&amp;selected=109724108&amp;startDate=2026-09-26&amp;endDate=2026-09-30&amp;adults=2&amp;chid=9cbb8923-937c-45cc-8a6e-0861586d4f62&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=398295155&amp;mpa=109.68&amp;mpb=18.20&amp;mpd=USD&amp;mpe=1783393995&amp;mpm=24&amp;mpn=325511133&amp;locale=en_US&amp;mpq=30.43&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/23000000/22410000/22400700/22400625/d962a14e_y.jpg" alt="China Old Story Inn Lijiang Elite Garden" />
+        <div>
+          <h3>China Old Story Inn Lijiang Elite Garden</h3>
+          <p>位于古城区，步行可到丽江古城、万古楼、木府。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>22400625</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>2</li>
+            <li><strong>星级：</strong>4.0</li>
+            <li><strong>住客评分：</strong>9.0，18条点评</li>
+            <li><strong>平均每晚：</strong>USD 23.87</li>
+            <li><strong>含税费平均每晚：</strong>USD 26.26</li>
+            <li><strong>总价：</strong>USD 111.33，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6047448&amp;selected=22400625&amp;startDate=2026-09-26&amp;endDate=2026-09-30&amp;adults=2&amp;chid=9cbb8923-937c-45cc-8a6e-0861586d4f62&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=212521429&amp;mpa=95.48&amp;mpb=15.85&amp;mpd=USD&amp;mpe=1783393995&amp;mpm=24&amp;mpn=202477974&amp;locale=en_US&amp;mpq=26.26&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6047448&amp;selected=22400625&amp;startDate=2026-09-26&amp;endDate=2026-09-30&amp;adults=2&amp;chid=9cbb8923-937c-45cc-8a6e-0861586d4f62&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=212521429&amp;mpa=95.48&amp;mpb=15.85&amp;mpd=USD&amp;mpe=1783393995&amp;mpm=24&amp;mpn=202477974&amp;locale=en_US&amp;mpq=26.26&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/119000000/118810000/118805400/118805371/a9d1136b_y.jpg" alt="Lijiang Tongfu Inn" />
+        <div>
+          <h3>Lijiang Tongfu Inn</h3>
+          <p>位于大研古城，步行可到丽江古城和相关古城景点。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>118805371</li>
+            <li><strong>房型面积：</strong>269 sq ft</li>
+            <li><strong>类型：</strong>Guest house</li>
+            <li><strong>最大入住：</strong>2</li>
+            <li><strong>星级：</strong>3.0</li>
+            <li><strong>住客评分：</strong>9.0，2条点评</li>
+            <li><strong>平均每晚：</strong>USD 18.75</li>
+            <li><strong>含税费平均每晚：</strong>USD 20.62</li>
+            <li><strong>总价：</strong>USD 87.43，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6047448&amp;selected=118805371&amp;startDate=2026-09-26&amp;endDate=2026-09-30&amp;adults=2&amp;chid=9cbb8923-937c-45cc-8a6e-0861586d4f62&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=403515422&amp;mpa=74.98&amp;mpb=12.45&amp;mpd=USD&amp;mpe=1783393995&amp;mpm=24&amp;mpn=327021299&amp;locale=en_US&amp;mpq=20.62&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6047448&amp;selected=118805371&amp;startDate=2026-09-26&amp;endDate=2026-09-30&amp;adults=2&amp;chid=9cbb8923-937c-45cc-8a6e-0861586d4f62&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=403515422&amp;mpa=74.98&amp;mpb=12.45&amp;mpd=USD&amp;mpe=1783393995&amp;mpm=24&amp;mpn=327021299&amp;locale=en_US&amp;mpq=20.62&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <h3>香格里拉：2026/9/30–10/4，4晚，2位成人</h3>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/21000000/20250000/20241500/20241414/e53ed48e_y.jpg" alt="Shangri-la Karesansui Hotel" />
+        <div>
+          <h3>Shangri-la Karesansui Hotel</h3>
+          <p>位于历史街区，步行可到独克宗古城、龟山公园、迪庆博物馆，也靠近松赞林寺和迪庆文化博览中心。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>20241414</li>
+            <li><strong>类型：</strong>Guest house</li>
+            <li><strong>最大入住：</strong>2</li>
+            <li><strong>星级：</strong>4.5</li>
+            <li><strong>住客评分：</strong>9.6，21条点评</li>
+            <li><strong>平均每晚：</strong>USD 95.98</li>
+            <li><strong>含税费平均每晚：</strong>USD 96.84</li>
+            <li><strong>总价：</strong>USD 406.92，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6046674&amp;selected=20241414&amp;startDate=2026-09-30&amp;endDate=2026-10-04&amp;adults=2&amp;chid=31cfa868-fb0d-4863-bc32-765dea0b4d86&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=211362957&amp;mpa=383.92&amp;mpb=23.00&amp;mpd=USD&amp;mpe=1783394008&amp;mpm=24&amp;mpn=202227445&amp;locale=en_US&amp;mpq=96.84&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6046674&amp;selected=20241414&amp;startDate=2026-09-30&amp;endDate=2026-10-04&amp;adults=2&amp;chid=31cfa868-fb0d-4863-bc32-765dea0b4d86&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=211362957&amp;mpa=383.92&amp;mpb=23.00&amp;mpd=USD&amp;mpe=1783394008&amp;mpm=24&amp;mpn=202227445&amp;locale=en_US&amp;mpq=96.84&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/19000000/18350000/18347000/18346976/c3db778e_y.jpg" alt="Hilton Garden Inn Shangri-La" />
+        <div>
+          <h3>Hilton Garden Inn Shangri-La</h3>
+          <p>位于德钦核心区域，靠近松赞林景区和迪庆文化博览中心。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>18346976</li>
+            <li><strong>房型面积：</strong>301 sq ft</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>3</li>
+            <li><strong>星级：</strong>3.5</li>
+            <li><strong>住客评分：</strong>8.0，23条点评</li>
+            <li><strong>平均每晚：</strong>USD 78.95</li>
+            <li><strong>含税费平均每晚：</strong>USD 87.48</li>
+            <li><strong>总价：</strong>USD 368.20，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6046674&amp;selected=18346976&amp;startDate=2026-09-30&amp;endDate=2026-10-04&amp;adults=2&amp;chid=31cfa868-fb0d-4863-bc32-765dea0b4d86&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=290094426&amp;mpa=315.80&amp;mpb=52.40&amp;mpd=USD&amp;mpe=1783394008&amp;mpm=24&amp;mpn=201997127&amp;locale=en_US&amp;mpq=87.48&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6046674&amp;selected=18346976&amp;startDate=2026-09-30&amp;endDate=2026-10-04&amp;adults=2&amp;chid=31cfa868-fb0d-4863-bc32-765dea0b4d86&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=290094426&amp;mpa=315.80&amp;mpb=52.40&amp;mpd=USD&amp;mpe=1783394008&amp;mpm=24&amp;mpn=201997127&amp;locale=en_US&amp;mpq=87.48&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/96000000/95370000/95361400/95361395/938edbc5_y.jpg" alt="Shangri-La Dala Pasture Hotel" />
+        <div>
+          <h3>Shangri-La Dala Pasture Hotel</h3>
+          <p>位于德钦，距离普达措国家公园、天生桥、迪庆文化博览中心、松赞林寺和独克宗古城均在一定车程范围内。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>95361395</li>
+            <li><strong>房型面积：</strong>409 sq ft</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>3</li>
+            <li><strong>星级：</strong>3.0</li>
+            <li><strong>住客评分：</strong>10.0，2条点评</li>
+            <li><strong>平均每晚：</strong>USD 259.02</li>
+            <li><strong>含税费平均每晚：</strong>USD 284.93</li>
+            <li><strong>总价：</strong>USD 1208.10，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6046674&amp;selected=95361395&amp;startDate=2026-09-30&amp;endDate=2026-10-04&amp;adults=2&amp;chid=31cfa868-fb0d-4863-bc32-765dea0b4d86&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=391258137&amp;mpa=1036.10&amp;mpb=172.00&amp;mpd=USD&amp;mpe=1783394008&amp;mpm=24&amp;mpn=322527792&amp;locale=en_US&amp;mpq=284.93&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6046674&amp;selected=95361395&amp;startDate=2026-09-30&amp;endDate=2026-10-04&amp;adults=2&amp;chid=31cfa868-fb0d-4863-bc32-765dea0b4d86&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=391258137&amp;mpa=1036.10&amp;mpb=172.00&amp;mpd=USD&amp;mpe=1783394008&amp;mpm=24&amp;mpn=322527792&amp;locale=en_US&amp;mpq=284.93&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <h3>德钦/梅里方向：2026/10/4–10/6，2晚，2位成人</h3>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/21000000/20250000/20241500/20241414/e53ed48e_y.jpg" alt="Shangri-la Karesansui Hotel" />
+        <div>
+          <h3>Shangri-la Karesansui Hotel</h3>
+          <p>位于历史街区，靠近独克宗古城、龟山公园、迪庆博物馆等。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>20241414</li>
+            <li><strong>类型：</strong>Guest house</li>
+            <li><strong>最大入住：</strong>2</li>
+            <li><strong>星级：</strong>4.5</li>
+            <li><strong>住客评分：</strong>9.6，21条点评</li>
+            <li><strong>平均每晚：</strong>USD 95.98</li>
+            <li><strong>含税费平均每晚：</strong>USD 96.84</li>
+            <li><strong>总价：</strong>USD 203.46，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6226575&amp;selected=20241414&amp;startDate=2026-10-04&amp;endDate=2026-10-06&amp;adults=2&amp;chid=d42c5dbe-13c3-4489-bbc8-cffc588394fa&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=211362957&amp;mpa=191.96&amp;mpb=11.50&amp;mpd=USD&amp;mpe=1783394015&amp;mpm=24&amp;mpn=202227445&amp;locale=en_US&amp;mpq=96.84&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6226575&amp;selected=20241414&amp;startDate=2026-10-04&amp;endDate=2026-10-06&amp;adults=2&amp;chid=d42c5dbe-13c3-4489-bbc8-cffc588394fa&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=211362957&amp;mpa=191.96&amp;mpb=11.50&amp;mpd=USD&amp;mpe=1783394015&amp;mpm=24&amp;mpn=202227445&amp;locale=en_US&amp;mpq=96.84&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/16000000/15170000/15170000/15169940/73dbfc9e_y.jpg" alt="Arrokhampa By Zinc Journey Shangrila" />
+        <div>
+          <h3>Arrokhampa By Zinc Journey Shangrila</h3>
+          <p>家庭友好型酒店，位于历史街区，靠近迪庆博物馆、龟山公园、松赞林寺。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>15169940</li>
+            <li><strong>房型面积：</strong>322 sq ft</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>3</li>
+            <li><strong>星级：</strong>4.0</li>
+            <li><strong>住客评分：</strong>9.4，22条点评</li>
+            <li><strong>平均每晚：</strong>USD 175.30</li>
+            <li><strong>含税费平均每晚：</strong>USD 192.37</li>
+            <li><strong>总价：</strong>USD 403.22，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6226575&amp;selected=15169940&amp;startDate=2026-10-04&amp;endDate=2026-10-06&amp;adults=2&amp;chid=d42c5dbe-13c3-4489-bbc8-cffc588394fa&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=401838543&amp;mpa=350.60&amp;mpb=52.62&amp;mpd=USD&amp;mpe=1783394015&amp;mpm=24&amp;mpn=201519727&amp;locale=en_US&amp;mpq=192.37&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6226575&amp;selected=15169940&amp;startDate=2026-10-04&amp;endDate=2026-10-06&amp;adults=2&amp;chid=d42c5dbe-13c3-4489-bbc8-cffc588394fa&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=401838543&amp;mpa=350.60&amp;mpb=52.62&amp;mpd=USD&amp;mpe=1783394015&amp;mpm=24&amp;mpn=201519727&amp;locale=en_US&amp;mpq=192.37&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+
+      <div class="card hotel-card">
+        <img class="photo" src="https://images.trvl-media.com/lodging/102000000/101770000/101761900/101761840/af06ad63_y.jpg" alt="Holiday Inn Express Shangri La by IHG" />
+        <div>
+          <h3>Holiday Inn Express Shangri La by IHG</h3>
+          <p>位于德钦核心区域，靠近迪庆文化博览中心和松赞林寺。</p>
+          <ul class="meta">
+            <li><strong>Hotel ID：</strong>101761840</li>
+            <li><strong>房型面积：</strong>269 sq ft</li>
+            <li><strong>类型：</strong>Hotel</li>
+            <li><strong>最大入住：</strong>4</li>
+            <li><strong>星级：</strong>3.0</li>
+            <li><strong>住客评分：</strong>7.8，7条点评</li>
+            <li><strong>平均每晚：</strong>USD 64.76</li>
+            <li><strong>含税费平均每晚：</strong>USD 71.90</li>
+            <li><strong>总价：</strong>USD 151.03，已含税费</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/Hotel-Search?regionId=6226575&amp;selected=101761840&amp;startDate=2026-10-04&amp;endDate=2026-10-06&amp;adults=2&amp;chid=d42c5dbe-13c3-4489-bbc8-cffc588394fa&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=407542631&amp;mpa=129.52&amp;mpb=21.51&amp;mpd=USD&amp;mpe=1783394015&amp;mpm=24&amp;mpn=325118616&amp;locale=en_US&amp;mpq=71.90&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL" target="_blank" rel="noopener">https://www.expedia.com/Hotel-Search?regionId=6226575&amp;selected=101761840&amp;startDate=2026-10-04&amp;endDate=2026-10-06&amp;adults=2&amp;chid=d42c5dbe-13c3-4489-bbc8-cffc588394fa&amp;tpid=1&amp;eapid=310155&amp;currency=USD&amp;rateplanid=407542631&amp;mpa=129.52&amp;mpb=21.51&amp;mpd=USD&amp;mpe=1783394015&amp;mpm=24&amp;mpn=325118616&amp;locale=en_US&amp;mpq=71.90&amp;mdpcid=US.DIRECT.OPENAI.CHATGPT.HOTEL</a></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities">
+      <h2>Expedia昆明活动选项</h2>
+
+      <div class="card activity-card">
+        <img class="photo" src="https://mediaim.expedia.com/localexpert/51676125/2c7f4097-cc47-4d3a-a611-6cde8cb1dcb2.jpg?impolicy=resizecrop&amp;rw=350&amp;rh=197" alt="Kunming: Stone Forest and Dianchi Lake Day Trip with Lunch" />
+        <div>
+          <h3>Kunming: Stone Forest and Dianchi Lake Day Trip with Lunch</h3>
+          <p>从昆明酒店接送出发，乘坐舒适巴士前往石林景区，并包含午餐。</p>
+          <p>
+            <span class="tag">Tours &amp; Sightseeing</span>
+            <span class="tag">Family Friendly</span>
+          </p>
+          <ul class="meta">
+            <li><strong>票价：</strong>USD 100.09 / ticket</li>
+            <li><strong>时长：</strong>PT24H0M</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/lx/activity/51676125/?langid=1033&amp;startDate=09/21/2026&amp;endDate=09/23/2026" target="_blank" rel="noopener">https://www.expedia.com/lx/activity/51676125/?langid=1033&amp;startDate=09/21/2026&amp;endDate=09/23/2026</a></span>
+        </div>
+      </div>
+
+      <div class="card activity-card">
+        <img class="photo" src="https://mediaim.expedia.com/localexpert/49772522/70a3d5ae-fcbc-47dc-93bc-102a8427986e.jpg?impolicy=resizecrop&amp;rw=350&amp;rh=197" alt="Stone Forest + Yiliang Roast Duck + Kunming City Private Tour" />
+        <div>
+          <h3>Stone Forest + Yiliang Roast Duck + Kunming City Private Tour</h3>
+          <p>酒店接送后前往石林私人导览，之后去宜良享用烤鸭午餐，并安排昆明市区游览。</p>
+          <p>
+            <span class="tag">Adventures</span>
+            <span class="tag">Day Trips &amp; Excursions</span>
+            <span class="tag">Private Tours</span>
+            <span class="tag">Tours &amp; Sightseeing</span>
+            <span class="tag">Walking &amp; Bike Tours</span>
+          </p>
+          <ul class="meta">
+            <li><strong>票价：</strong>USD 112.22 / ticket</li>
+            <li><strong>时长：</strong>PT10H0M</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/lx/activity/49772522/?langid=1033&amp;startDate=09/21/2026&amp;endDate=09/23/2026" target="_blank" rel="noopener">https://www.expedia.com/lx/activity/49772522/?langid=1033&amp;startDate=09/21/2026&amp;endDate=09/23/2026</a></span>
+        </div>
+      </div>
+
+      <div class="card activity-card">
+        <img class="photo" src="https://mediaim.expedia.com/localexpert/51682770/82b68497-5d0e-4de5-ac9f-9ec10ee57d47.jpg?impolicy=resizecrop&amp;rw=350&amp;rh=197" alt="Kunming: 8-Day Yunnan Impression Tour" />
+        <div>
+          <h3>Kunming: 8-Day Yunnan Impression Tour</h3>
+          <p>从昆明抵达开始，有导游和司机接待，并安排车辆前往酒店，是多日云南线路产品。</p>
+          <p>
+            <span class="tag">Day Trips &amp; Excursions</span>
+            <span class="tag">Private Tours</span>
+            <span class="tag">Spa</span>
+            <span class="tag">Tours &amp; Sightseeing</span>
+            <span class="tag">Walking &amp; Bike Tours</span>
+            <span class="tag">Family Friendly</span>
+          </p>
+          <ul class="meta">
+            <li><strong>票价：</strong>USD 1519.0 / ticket</li>
+            <li><strong>时长：</strong>PT192H0M</li>
+          </ul>
+          <span class="url">完整链接：<a href="https://www.expedia.com/lx/activity/51682770/?langid=1033&amp;startDate=09/21/2026&amp;endDate=09/23/2026" target="_blank" rel="noopener">https://www.expedia.com/lx/activity/51682770/?langid=1033&amp;startDate=09/21/2026&amp;endDate=09/23/2026</a></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips">
+      <h2>执行提醒</h2>
+      <div class="card">
+        <p>
+          这套行程最关键的是：<strong>9月21–24日完成昆明/大理进场，9月26–29日完成丽江核心景点，
+          10月1日后把节奏放慢到香格里拉和梅里方向</strong>。
+          高海拔段不要连续安排高强度徒步，玉龙雪山、普达措、梅里雪山都建议留天气替换方案。
+        </p>
+        <p>
+          更精确版本需要出发城市、人数、是否能接受拼车/包车、住宿偏好，
+          之后可以把交通班次逻辑和每日预算再压成一张可执行清单。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>2026云南国庆前后17天行程规划｜价格信息以Expedia返回结果为准，单位为USD，总价已含税费。</p>
+  </footer>
+</body>
+</html>
